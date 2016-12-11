@@ -1,0 +1,47 @@
+<!-- 领取卡券页面 -->
+<link href="/css/home/successAppointment.css" rel="stylesheet">
+<ion-view view-title="快乐语文">
+  <ion-content>
+    <div class="card-front" ng-show="isFront" ng-click="turnOver()" >
+		<h1>课程优惠抵扣劵</h1>
+		<p>仅限微信预约会员使用</p>
+		<p>有效期：年.月.日---年.月.日</p>
+    </div>
+    <div class="card-reverse ng-hide" ng-hide="isFront">
+    	<div class="list">
+    		<div class="item">
+    			<div class="row">
+    				<a ng-click="turnOver()" class="col col-10"><i class="ion-ios-undo-outline"></i></a>
+			    	<h2 class="col">课程优惠卡券使用说明</h2>
+    			</div>
+			  </div>
+			  <div class="item">
+			    <div class="desc">优惠说明：</div>
+			    <p>
+			    	价值100元课程优惠券一张，微信预约到培训中心出示即可抵扣。
+			    </p>
+			  </div>
+			  <div class="item">
+			  	<div class="desc">备    注：</div>
+			  	<div>
+					<p>1.本券仅供预约课程本人使用；</p>
+					<p>2.不与其他优惠叠加使用；</p>
+					<p>3.不可兑现；</p>
+					<p>4.每次仅可使用一张</p>
+			  	</div>
+			  </div>
+			  <div class="item">
+			  	<div class="desc">使用培训中心：</div>
+			  	<div>
+					<p>快乐语文 <i class="ion-location icon-custom"></i></p>
+			  	</div>
+			  </div>
+			  
+    	</div>
+    </div>
+    <hr>
+    <button class="button button-full button-positive">
+  		立即领取
+	</button>
+  </ion-content>
+</ion-view>

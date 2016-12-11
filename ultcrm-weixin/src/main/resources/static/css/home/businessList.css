@@ -1,0 +1,33 @@
+.box-title{
+	font-size:20px;
+	color:#333333;
+	font-family: "Microsoft YaHei" ! important;
+}
+
+.box-content {
+		
+}
+
+.box-item img{
+	margin:0 auto;		
+			
+		
+	text-align:center; 	
+	display:block;
+	max-width:80%;
+	font-size:14px;
+}
+
+.box-item span{
+	display:block;	
+	text-align:center; 	
+	
+}
+
+.spliter img{
+	max-width:100%;
+}
+
+.icon-custom{
+	font-weight:bold; color: #00A0E9;
+}

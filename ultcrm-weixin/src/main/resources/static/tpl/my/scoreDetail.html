@@ -1,0 +1,43 @@
+<ion-view view-title="我的积分" class="score">
+	
+		<ion-header-bar class="bar-score">
+			<div class="buttons">
+				<button ng-show="leftArrowState.show" class="button button-icon icon ion-ios-arrow-left ng-hide" 
+          			ng-click="previousSlide()"></button>
+			</div>
+			<h1 class="title" style="text-align:center;"><span class="title-techlevelno"> {{techlevelno}} </span><span class="title-score"> {{'(' + score + ')'}} </span></h1>
+			<div class="buttons">
+				<button  ng-show="rightArrowState.show" class="button button-icon icon ion-ios-arrow-right ng-hide" 
+          			ng-click="nextSlide()"></button>
+			</div>
+		</ion-header-bar>
+	
+		<ion-content class="scoreDetail-content">
+		<div class="v-spacer"></div>			
+		<!-- slidebox内容 -->
+		<ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
+			<ion-slide ng-repeat="scoreDetailItem in scoreDetailItems">
+					
+				<!-- 积分列表 -->
+				<ion-list class="list score-list">
+					<ion-item class="item no-score-hint ng-hide" ng-show="scoreDetailItem.scoreItems.length==0" 
+							style="border:none;text-align:center;">
+						<div class="row info-no-score-line">
+							<div class="col info-no-score"><p>尊敬的用户，该课程暂时没有积分！</p></div>
+						</div>
+					</ion-item>
+					<ion-item class="item score-item clearfix" ng-repeat="scoreItem in scoreDetailItem.scoreItems">
+						<div class="content">
+							<div class="first-row"><p class="desc">{{scoreItem.description}}</p><span class="time">{{scoreItem.time}}</span></div>
+							<div class="last-row">
+								<span class="score-no">{{scoreItem.orderNo?"单号:"+scoreItem.orderNo:scoreItem.description}}</span>
+								<span class="score">{{scoreItem.value>0?"+"+scoreItem.value:scoreItem.value}}</span>
+							</div>
+						</div>
+					</ion-item>
+				</ion-list>
+		  	</ion-slide>
+		</ion-slide-box>    		
+	</ion-content>
+</ion-view>
+

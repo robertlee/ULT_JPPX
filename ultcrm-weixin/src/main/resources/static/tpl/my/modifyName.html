@@ -1,0 +1,37 @@
+<style type="text/css" rel="stylesheet">
+	/*按钮固定在页面下方*/
+	.modifyname-content .fix-bottom{
+		position:relative;
+		top:368px;
+	}
+	/*输入框与页面顶端有一定距离 */
+	.modifyname-content .input-top{
+		margin-top:28px;
+	}
+	/*提醒信息 */
+	.modifyname-content .prompt-info{
+		color:#999999;
+		font-size:14px;
+		margin-left:35px;
+		margin-top: 6px;
+	}
+</style>
+<ion-view view-title="我的信息">
+	<ion-content class="modifyname-content">
+		<!-- 输入框 -->
+		<div class="item item-input input-custom input-top {{isFocus?'focus':''}}"  style="margin-top:50px">
+	    	<input type="text" ng-focus="setFocus(true)" ng-blur="setFocus(false)" required 
+	    	ng-maxlength=10 maxlength=10 placeholder="{{placeholderName || '请输入姓名'}}" ng-model="customer.name">
+	     	<div class="icon ion-ios-close placeholder-icon delete" ng-click="clearName()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+	  	</div>
+
+	  	<p class="prompt-info">真实姓名方便我们为您提供更优质的服务！</p>
+	  	
+	  	<!-- 保存按钮 -->
+	  	<div class="padding padding-normal">
+	    	<button class="button button-submit" ng-disabled= "!customer.name"  ng-click="toProfileList()">保存</button>
+	    </div>
+	  	
+	</ion-content>
+</ion-view>
+

@@ -1,0 +1,132 @@
+<style type="text/css">
+.my-content .item.item-clickable .text{
+	color: #666;
+}
+.my-content .item.item-clickable .icon-right{
+	color: #a0a0a0;
+}
+.my-content .item-clickable .icon-myorder:before{
+	font-size: 28px;
+	color: #FBA43A;
+}
+.my-content .item-clickable .icon-mytech:before{
+	font-size: 28px;
+	color: #44BCEE;
+}
+
+.my-content .item-clickable .icon-mycards:before{
+	font-size: 28px;
+	color: #FD8793;
+}
+
+.my-content .item-clickable .icon-myscore:before{
+	font-size: 28px;
+	color: #6DD28E;
+}
+
+/*图标变淡*/
+.my-content .shortcut.shortcut-small .iconfont:first-child{
+	color: #999 !important;
+}
+.my-content .shortcut .badge{
+	position: absolute;
+    border: 1px solid #ff8793;
+    border-radius: 6px;
+    color: #ff5259;
+    font-size: 12px;
+    padding: 0 3px;
+    margin: 0;
+    text-align: center;
+    height: 15px;
+    line-height: 15px;
+    background: #fff;
+    top: -5px;
+    font-weight: 300;
+    right: 22%;
+}
+</style>
+
+<ion-view view-title="快乐语文●我的">
+	<ion-content class="bg-background-grey my-content">	
+	
+		<div class="customer-info clearfix" ng-click="toProfileList()">
+			<div class="avatar" style="border-color:#085E88">
+				<img ng-src="{{customer.headimgurl}}">
+			</div>
+			<!-- 如果没有电话，昵称居中 -->
+			<div class="detail">
+				<p ng-class="{name:customer.phone,nickname:!customer.phone}">{{customer.name?customer.name:customer.nickname}}&nbsp;&nbsp;&nbsp; {{ convertSex(customer.sex) }}</p>
+				<p ng-if="customer.phone" class="phone">{{customer.phone}}</p>
+			</div>
+			<i class="icon icon-right ion-ios-arrow-right"></i>
+		</div>	
+		<div class="v-spacer"></div>
+		<div class="list">
+	    	 <div class="item item-clickable">
+			    <div class="icon iconfont icon-myorder icon-left"></div>
+			    <div class="text">课程订单状态</div>
+			 </div>
+			 
+			 <div class="item row">
+				<div class="col">
+					<div class="shortcut shortcut-small" ng-click="toOrderList('new')" style="position:relative">
+						<div class="icon iconfont icon-pending">
+							<div class="badge">{{newCount>0?newCount:''}}</div>
+						</div>
+						<p style="color: #999">待培训</p>
+					</div>
+				</div>
+				<div class="col">
+					<div class="shortcut shortcut-small" ng-click="toOrderList('working')" style="position:relative">
+						<div class="icon iconfont icon-working">
+							<div class="badge">{{workingCount>0?workingCount:''}}</div>
+						</div>
+						<p style="color: #999">培训中</p>
+					</div>
+				</div>
+				<div class="col">
+					<div class="shortcut shortcut-small" ng-click="toOrderList('complete')" style="position:relative">
+						<div class="icon iconfont icon-done">
+							<div class="badge">{{completeCount>0?completeCount:''}}</div> 
+						</div>
+						<p style="color: #999">已结束</p>
+					</div>
+				</div>
+				<div class="col">
+					<div class="shortcut shortcut-small" ng-click="toOrderList('comment')" style="position:relative">
+						<div class="icon iconfont icon-comment">
+							<div class="badge">{{commentCount>0?commentCount:''}}</div>
+						</div>
+						<p style="color: #999">待评价</p>
+					</div>
+				</div>
+			 </div> 
+	    </div>
+	    <div class="v-spacer"></div>
+	    <div class="list">
+	    	 <div class="item item-clickable" ng-click="toChild()">
+			    <div class="icon iconfont icon-mytech icon-left"></div>
+			    <div class="text">报名儿童</div>
+			    <i class="icon icon-right ion-ios-arrow-right"></i> 
+			 </div>
+	    </div>
+	    
+	    <div class="v-spacer"></div>
+	    <div class="list">
+	    	 <div class="item item-clickable" ng-click="toWallet()">
+			    <div class="icon iconfont icon-mycards icon-left"></div>
+			    <div class="text">我的卡包</div>
+			    <i class="icon icon-right ion-ios-arrow-right"></i> 
+			 </div>
+	    </div>
+	    
+	    <div class="v-spacer"></div>
+	    <div class="list">
+	    	 <div class="item item-clickable" ng-click="toScores()">
+			    <div class="icon iconfont  icon-myscore icon-left"></div>
+			    <div class="text">我的积分</div>
+			    <i class="icon icon-right ion-ios-arrow-right"></i> 
+			 </div>
+	    </div> 
+	</ion-content>
+</ion-view>

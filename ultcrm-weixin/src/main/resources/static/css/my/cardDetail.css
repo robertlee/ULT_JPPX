@@ -1,0 +1,100 @@
+.cardDetail-content .card-no{
+	height: 55px;
+	color: #fff;
+	text-align: center; 
+	background:#0998DC;
+}
+.cardDetail-content .title{
+	color:#fff;
+	height:55px;
+	line-height:55px;
+}
+.cardDetail-content .title small{
+	padding-left:5px;
+}
+
+/*卡券信息，不包括使用详情*/
+.card-info{
+	padding-top:20px;
+	color: #656565;
+}
+/*剩余使用次数*/
+.card-info .card-remain{
+	margin:0px auto;
+	width:90px;
+	height:90px;
+	border-radius:50%;
+	text-align: center;
+	line-height:90px;
+	font-size: 24px;
+	color: #fff;
+	background:#0998DC;
+}
+/*卡券描述，XX保养卡*/
+.card-info .card-desc{
+	text-align:center;
+	font-size: 20px;
+}
+/*车牌*/
+.card-info .plate-no{
+	padding-right: 10px;
+	text-align: right;
+	width:50%;
+}
+/*截止日期*/
+.card-info .deadline{
+	width:50%;
+	padding-left: 10px;
+	text-align: left;
+}
+
+/*使用详情*/
+.used-list-title{
+	position: relative;
+	text-align: center;
+	margin: 10px auto;
+	font-size: 18px;
+}
+.used-list-title .line{
+	position: absolute;
+	top: 5px;
+	left: 15px;
+	right: 15px;
+	z-index: -1;
+	border-top: 1px #656565 solid;
+}
+
+.used-list-title .list-title{
+	width:80px;
+	background: #fff;
+	margin: 0px auto;
+}
+
+.cardDetail-content .list{
+	margin-bottom: 10px;
+}
+
+/*使用详情条目*/
+.cardDetail-content .list .item{
+	color: #656565;
+	padding-bottom: 5px;
+}
+/*不显示列表上下边线*/
+.cardDetail-content .list .item:first-child{
+	border-top: 0;
+}
+.cardDetail-content .list .item:last-child{
+	border-bottom: 0;
+}
+
+
+/*返回按钮*/
+.return-button{
+	background: #099ADD;
+	color: #fff;
+	height: 50px;
+	margin: 20px;
+}
+.button.return-button.activated{
+	background: #098bca;
+}

@@ -1,0 +1,45 @@
+<style type="text/css">
+/*应要求：激活状态不要黑色横杠，footbar需要上边线*/
+.footbar.tabs-icon-top a.tab-item.tab-item-active,
+.footbar.tabs-icon-top a.tab-item.activated
+{
+ 	color: #35b2e3;
+ 	border-color: transparent !important;
+ }
+
+ .footbar.tabs-icon-top .tab-item .icon {
+    display: block;
+    margin: 0 auto;
+    height: 32px;
+    line-height:32px;
+    font-size: 32px;
+ }
+ .footbar.tabs-icon-top .tabs.tab-nav{
+ 	border-top: 1px solid #ddd !important;
+ }
+</style>
+
+<ion-tabs class="footbar tabs-icon-top tabs-color-active" ng-controller="foottabsCtrl" >
+
+  <ion-tab title="活动" icon-off="iconfont icon-activity-off" icon-on="iconfont icon-activity-on" ui-sref='index.home' on-deselect="clearTabsHistory()">
+    <ion-nav-view name="index-home"></ion-nav-view>
+  </ion-tab>
+
+  
+  <ion-tab title="报名" icon-off="iconfont icon-service-off" icon-on="iconfont icon-service-on" ui-sref='index.service' on-deselect="clearTabsHistory()">
+    <ion-nav-view name="index-service"></ion-nav-view>
+  </ion-tab>
+
+ 
+  <!-- Account Tab -->
+  <ion-tab title="状态" icon-off="iconfont icon-order-off" icon-on="iconfont icon-order-on" ui-sref='index.orderOrderList' on-deselect="clearTabsHistory()">
+    <ion-nav-view name="index-order"></ion-nav-view>
+  </ion-tab>
+  
+    <!-- Account Tab -->
+  <ion-tab title="我的" icon-off="iconfont icon-my-off" icon-on="iconfont icon-my-on" ui-sref="index.myindex" on-deselect="clearTabsHistory()">
+    <ion-nav-view name="index-my"></ion-nav-view>
+  </ion-tab>
+  
+
+</ion-tabs>

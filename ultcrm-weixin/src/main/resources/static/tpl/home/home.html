@@ -1,0 +1,51 @@
+<style type="text/css" rel="stylesheet">
+	.activity-content .list .advertise{
+		position:relative;
+		padding: 0;
+		margin: 12px 12px 0 12px;
+	    border: none;
+	    height:159px;
+	    background-size: cover;
+	}
+	.mask{
+		position: absolute;
+	    background-color: #000;
+	    opacity: 0.5;
+	    width: 100%;
+	    height: 54px;
+	    bottom: 0;
+	}
+	.text-mask{
+		position: absolute;
+	    width: 100%;
+	    height: 54px;
+	    bottom: 0;
+	}
+	.text-mask .ad-text0{
+		 padding-left:10px;
+		 font-size:16px;
+		 color:#fff;
+		 margin-top:17px;
+		 z-index:9999;
+	}
+	.text-mask .ad-text1{
+		 padding-left:10px;
+		 font-size:16px;
+		 color:#fff;
+		 margin-top:7px;
+	}
+</style>
+<ion-view view-title="快乐语文●优惠活动">
+  	<ion-content direction="y" class="activity-content">	
+		<div class="list">
+			<div class="item advertise" ng-repeat="item in activityList" ng-click="toActivityDetail($index)">
+				<img ng-src="/img/activity/ad_{{$index}}.jpg" style="width:100%">
+				<div class="mask"></div>
+				<div class="text-mask" ng-bind-html="item.template"></div>
+			</div>
+		</div>
+				
+				
+	</ion-content>
+</ion-view>
+

@@ -1,0 +1,100 @@
+/*清除浮动*/
+.clearfix{
+	clear: both;
+	height: 0;
+	overflow: hidden;
+}
+.bar-custom h1.title{
+	margin-left:12%;
+	margin-right:12%;
+}
+.left-title{
+	float:left;
+	display:inline;
+}
+.right-title{
+	 float:right;
+	 display:inline;
+}
+
+/*选择器要详细，否则会被自身背景覆盖*/
+ion-header-bar.bar.bar-custom {
+	background: #099ADD;
+	border-color: #099ADD;
+	background-image: none;
+	height: 50px;
+}
+ion-header-bar.bar.bar-custom .title {
+	height: 50px;
+	line-height: 50px;
+}
+
+/* 列表上侧少量留白，下侧留白 */
+ion-slide .list{
+	padding-top: 8px;
+	padding-bottom: 10px;
+}
+
+/*调整列表条目留白*/
+/* .score-detail-item{
+	padding:3px 6px;
+} */
+
+/*取消列表中上下的边线*/
+.list .score-detail-item:nth-child(2){
+	border-top:0;
+}
+.list .score-detail-item:last-child{
+	border-bottom:0;
+}
+
+/*无积分提示*/
+.item.no-score-hint{
+	border-top:0;
+	border-bottom:0;
+}
+.item.no-score-hint img{
+	width:100%;
+}
+/*调整列表留白*/
+.scoreDetail-content .list .item{
+	color: #656565;
+	padding-bottom: 5px;
+}
+.scoreDetail-content .list .row{
+	padding:0;
+}
+
+/*积分为红色*/
+.score-detail-item small:last-child{
+	color:red;
+}
+/*左侧对齐*/
+.score-detail-item small:first-child{
+	padding-left:0;
+}
+
+
+/*返回按钮*/
+.return-button{
+	background: #099ADD;
+	color: #fff;
+	height: 50px;
+	margin:  20px;
+}
+.button.return-button.activated{
+	background: #098bca;
+}
+
+/*无积分页面提示离顶部高度*/
+.score .list .info-no-score-line{
+	margin-top:200px;
+}
+
+/*无积分页面的提示样式*/
+.score .list .info-no-score{
+	text-align:center;
+}
+
+
+

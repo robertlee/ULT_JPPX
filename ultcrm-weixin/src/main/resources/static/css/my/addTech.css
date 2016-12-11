@@ -1,0 +1,41 @@
+
+.addTech .title{
+	background-color:#0998DC;
+	color:white;
+	font-size:24px;
+	height: 50px;
+	    padding: 0px;
+	        padding-left: 10px;
+}
+      
+.addTech .title div{
+ height:50px;   
+ line-height:50px; 
+} 
+
+.content {
+	margin:10px;
+}
+
+.content .col{
+  height:35px;
+  line-height:35px;
+}
+
+.content .row {
+	margin-bottom:15px;
+}
+
+.content .border-box {
+    border: 1px solid #cdccd1;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding-left: 10px;
+}
+
+.content input{
+    border: 1px solid #cdccd1;
+    border-radius: 5px;
+    background-color: white;
+    padding-left: 10px;
+}

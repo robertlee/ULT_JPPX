@@ -1,0 +1,165 @@
+<ion-view view-title="订单进度信息" ng-controller="orderProcessDetailCtrl"><ion-content>
+
+	<div class="row  positive-bg positive-border">
+	    <div class="col col-50">
+            <div class="h5" style="color :white;"> {{orderProcess.name}} </div>
+        </div>
+	    <div class="col col-50">
+	       
+            <!-- todo: erp要返回正确值 <div class="h5" style="color :white;"> 预计完成： {{orderProcess.planFinishedtime|date:'yyyy/MM/dd'}} </div> -->
+        </div>           
+	</div>
+	<div class="row dark-bg dark-border">
+	    <div class="col col-100">
+            <div class="h5" style="color :white;"> 课程名称 {{orderProcess.techModelName}} </div>
+            <div class="h5" style="color :white;"> 课程编码 {{orderProcess.techlevelno}} </div>
+        </div>	               
+	</div>
+	<br>
+	<div ng-if="!enterStore" class="row" style="background-image: url(/img/my/orderDetail/waitprintbill.png);background-repeat: no-repeat;background-size: 100% 100%;margin-top: -16px;">
+	    <div class="col col-20">
+        </div>
+	    <div class="col col-80">
+            <div class="h5" style="color :gray;"> 待登记  </div>
+        </div>               
+	</div>
+	
+	<div ng-if="enterStore"  class="row" style="background-image: url({{enterStore.backimageurl}});background-repeat: no-repeat;background-size: 100% 100%;">
+	    <div class="col col-33 col-offset-20">
+            <div class="h5" style="color :white;"> {{enterStore.startTimeStr}} </div>
+            <div class="h5" style="color :white;"> {{enterStore.name}}  </div>
+        </div>
+        <div class="col col-33" >
+				<div class="row" style="padding-top:0px;padding-bottom:0px"> 
+				 	<img class="" ng-src="{{enterStore.workerimageurl}}" style="max-height: 68px;margin-left: auto;margin-right: auto;"></img>
+				</div>				
+				<div class="row" style="padding-top:2px;padding-bottom:0px">
+					<img class="" ng-src="{{fivestarurl}}" style="max-height: 25px;margin-left: auto;margin-right: auto;"></img>
+				</div>
+				<div class="row" style="padding-top:2px;padding-bottom:0px">
+				    <div style="color :white;margin-left: auto;margin-right: auto;">  {{enterStore.saName}}  </div>
+				</div>
+        </div>               
+	</div>
+	
+	<div ng-if="!printBill" class="row" style="background-image: url(/img/my/orderDetail/waitprintbill.png);background-repeat: no-repeat;background-size: 100% 100%;margin-top: 0px;">
+	    <div class="col col-20">
+        </div>
+	    <div class="col col-80">
+            <div class="h5" style="color :gray;"> 待开课 </div>
+        </div>	               
+	</div>
+	
+	<div ng-if="printBill" class="row" ng-click="openModalPrintBill()" style="background-image: url({{printBill.backimageurl}});background-repeat: no-repeat;background-size: 100% 100%;margin-top: 0px;">   
+	    
+	    <div class="col col-33 col-offset-20">
+            <div class="h5" style="color :white;"> {{printBill.startTimeStr}} </div>
+            <div class="h5" style="color :white;"> {{printBill.name}}  </div>
+        </div>
+        <div class="col col-33" >
+				<div class="row" style="padding-top:0px;padding-bottom:0px"> 
+				 	<img class="" ng-src="{{printBill.workerimageurl}}" style="max-height: 68px;margin-left: auto;margin-right: auto;" ></img>
+				</div>
+				
+				<div class="row" style="padding-top:2px;padding-bottom:0px">
+					<img class="" ng-src="{{fivestarurl}}" style="max-height: 25px;margin-left: auto;margin-right: auto;"></img>
+				</div>
+				<div class="row" style="padding-top:2px;padding-bottom:0px">
+				    <div style="color :white;margin-left: auto;margin-right: auto;"> {{printBill.saName}} </div>
+				</div>
+        </div> 
+        <div class="col col-10" style="margin-top: auto;margin-bottom: auto;">
+            <a class="button button-clear icon icon-right ion-chevron-right" style="padding-top:10px" ></a>
+        </div>    
+	</div>
+	
+	<div ng-if="!plantWorks" class="row" style="background-image: url(/img/my/orderDetail/waitwork.png);background-repeat: no-repeat;background-size: 100% 100%;margin-top: 0px;">
+	    <div class="col col-20">
+        </div>
+	    <div class="col col-80">
+            <div class="h5" style="color :gray;"> 待培训  </div>
+        </div>	               
+	</div>
+	
+	<div ng-if="plantWorks" class="row" ng-click="openModalPlantWork()" style="background-image: url({{currentPlantWork.backimageurl}});background-repeat: no-repeat;background-size: 100% 100%;margin-top: 0px;">
+	    <div class="col col-33 col-offset-20">
+            <div ng-if="currentPlantWork.currentStatus==7" class="h5" style="color :white;"> 正培训： <span style="color:red"> {{currentPlantWork.bezei}} </span>  </div>
+            <div ng-if="currentPlantWork.currentStatus>7" class="h5" style="color :white;"> 已结束  </div>
+        </div>	 
+            
+        <div class="col col-33" >
+				<div class="row" style="padding-top:0px;padding-bottom:0px"> 
+				 	<img class="" ng-src="{{currentPlantWork.workerimageurl}}" style="max-height: 68px;margin-left: auto;margin-right: auto;" ></img>
+				</div>
+				
+				<div class="row" style="padding-top:2px;padding-bottom:0px">
+					<img class="" ng-src="{{fivestarurl}}" style="max-height: 25px;margin-left: auto;margin-right: auto;"></img>
+				</div>
+				<div class="row" style="padding-top:2px;padding-bottom:0px">
+				    <div style="color :white;margin-left: auto;margin-right: auto;"> {{currentPlantWork.saName}} </div>
+				</div>
+        </div>
+        <div class="col col-10" style="margin-top: auto;margin-bottom: auto;">
+            <a class="button button-clear icon icon-right ion-chevron-right" style="padding-top:10px" ng-click="openModalPlantWork()"></a>
+        </div>              
+	</div>
+
+	<div ng-if="!quaCheck" class="row" style="background-image: url(/img/my/orderDetail/waitcheck.png);background-repeat: no-repeat;background-size: 100% 100%;margin-top: 0px;">
+	    <div class="col col-20">
+        </div>
+	    <div class="col col-80">
+            <div class="h5" style="color :gray;"> 待考试 </div>
+        </div>	               
+	</div>
+
+	<div ng-if="quaCheck" class="row" style="background-image: url(/img/my/orderDetail/checked.png);background-repeat: no-repeat;background-size: 100% 100%;margin-top: 0px;">
+	
+	    <div class="col col-33 col-offset-20">
+            <div class="h5" style="color :white;"> 已完成结业考试  </div>
+        </div>	 
+          
+        <div class="col col-33 col-offset" >
+				<div class="row" style="padding-top:0px;padding-bottom:0px"> 
+				 	<img class="" ng-src="{{quaCheck.workerimageurl}}" style="max-height: 68px;margin-left: auto;margin-right: auto;" ></img>
+				</div>
+				
+				<div class="row" style="padding-top:2px;padding-bottom:0px">
+					<img class="" ng-src="{{fivestarurl}}" style="max-height: 25px;margin-left: auto;margin-right: auto;"></img>
+				</div>
+				<div class="row" style="padding-top:2px;padding-bottom:0px">
+				    <div style="color :white;margin-left: auto;margin-right: auto;"> {{quaCheck.saName}} </div>
+				</div>
+        </div>               
+	</div>
+		
+	<div ng-if="!custPay" class="row" style="background-image: url(/img/my/orderDetail/waitpay.png);background-repeat: no-repeat;background-size: 100% 100%;margin-top: 0px;">
+	    <div class="col col-20">
+        </div>
+	    <div class="col col-80">
+            <div class="h5" style="color :gray;"> 待毕业 </div>
+        </div>	               
+	</div>
+	
+	<div ng-if="custPay" class="row" ng-click="openModalCustomerPay()" style="background-image: url(/img/my/orderDetail/payed.png);background-repeat: no-repeat;background-size: 100% 100%;margin-top: 0px;">
+	    <div class="col col-33 col-offset-20">
+            <div class="h5" style="color :white;"> 已毕业  </div>
+        </div>	 
+    
+        <div class="col col-33" >
+				<div class="row" style="padding-top:0px;padding-bottom:0px"> 
+				 	<img class="" ng-src="{{custPay.workerimageurl}}" style="max-height: 68px;margin-left: auto;margin-right: auto;" ></img>
+				</div>
+				
+				<div class="row" style="padding-top:2px;padding-bottom:0px">
+					<img class="" ng-src="{{fivestarurl}}" style="max-height: 25px;margin-left: auto;margin-right: auto;"></img>
+				</div>
+				<div class="row" style="padding-top:2px;padding-bottom:0px">
+				    <div style="color :white;margin-left: auto;margin-right: auto;"> {{custPay.saName}} </div>
+				</div>
+        </div>
+        <div class="col col-10" style="margin-top: auto;margin-bottom: auto;">
+            <a class="button button-clear icon icon-right ion-chevron-right" style="padding-top:10px" ></a>
+        </div>               
+	</div>
+	
+	</ion-content></ion-view>

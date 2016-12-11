@@ -1,0 +1,134 @@
+<style>
+.mychildren-content .tech-card{
+	margin: 0;
+	padding: 0;
+}
+.mychildren-content .button.button-full.button-add-tech{
+	position: relative;
+	margin: 0;
+	background: #fff;
+	border: 0;
+	height: 46px;
+}
+.mychildren-content .button-add-tech i{
+	position: relative; 
+	top: 1px;	/*调整图标居中*/
+	font-size: 22px;
+}
+.mychildren-content .button-edit{
+	margin: auto 
+}
+
+
+.mychildren-content .item-single .row, .mychildren-content .item-single .col{
+	margin: 0;
+	padding: 0;
+}
+
+/*编辑，选择按钮*/
+.mychildren-content .item-single .button-edit, .mychildren-content .item-single .button-choice{
+	height: 34px;
+	min-height: 34px;
+	line-height: 34px;
+	margin: 8px 10px;
+	font-size: 15px;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+
+}
+.mychildren-content .item-single .button-edit i, .item-single .button-choice i{
+	font-size: 125%;
+}
+.mychildren-content .item-single .button-edit{
+	background: #35b2e3;
+}
+.mychildren-content .item-single .button-edit.activated{
+	background: #1c98c9;
+}
+.mychildren-content .item-single .button-choice.activated{
+	background:#ff9d28;
+}
+/*卡片左右不留白*/
+.mychildren-content .list.tech-card{
+	margin:0;
+}
+/*最后一行宽一点*/
+.mychildren-content .list.tech-card .item-single:last-child{
+	height: 50px;
+}
+/*单行左右留白*/
+.mychildren-content .item-single{
+	padding-left: 0px;
+	padding-right: 14px;
+}
+/*调整单行字体*/
+.mychildren-content .item-single div{
+	font-size: 14px;
+	color: #333333;
+}
+/*第二列左侧留白多一点*/
+.mychildren-content .item-single .row div.col:last-child{
+	padding-left:5%;
+}
+/*图像居中*/
+.mychildren-content .icon.icon-children{
+	width: 82px;
+	height: 55px;
+	margin: auto 0;
+}
+/*图像居中*/
+.mychildren-content .icon.icon-children img{
+	margin-top: 14px;
+	width: 100%;
+}
+.mychildren-content .tech-card .item-clickable .icon-children{
+	height: 82px;
+	line-height: 82px;
+	font-size: 80px
+}
+/*文字垂直居中 */
+.mychildren-content .tech-card .item-clickable .text{
+	padding-left: 55px;
+	height: 82px;
+	line-height: 82px;
+}
+.mychildren-content .tech-card .item.item-clickable{
+	height: 82px;
+}
+
+/*将字体大小移动至公共组件 */
+.mychildren-content .font-large{	
+	font-size: 18px;
+}
+
+.mychildren-content .item-single .icon-custom.icon-audi-sm{
+	margin-top:16px;
+}
+.mychildren-content .item-single .icon-custom.icon-land-rover-sm{
+	margin-top:13px;
+}
+.col a{
+	color:#35b2e3;
+}
+</style>
+<ion-view view-title="快乐语文-儿童信息" >
+	<ion-content class="mychildren-content bg-background-grey">	
+		<input id="hiddenCustomerId" type="hidden" value="{{hiddenCustomerId}}"/>
+		<button class="button button-full button-add-tech blue font-large" ng-click="toAddChild()">
+		  <i class="ion-ios-plus-outline"></i> 儿童信息
+		</button>
+	    <div class="list card tech-card" ng-repeat="child in childrenList">
+			 <div class="item item-single">
+			 	<div class="row">	
+			 		<div class="col">
+			 			姓名：<span class="sub-grey">{{child.name}}</span>&nbsp;&nbsp;&nbsp;
+			 			出生年月：<span class="sub-grey">{{child.year}}/{{child.month}}</span>&nbsp;&nbsp;&nbsp;
+			 			<a ng-click="editChild({{child.lastUpdateUserid}},'{{child.name}}','{{child.year}}','{{child.month}}')">编辑</a>
+						<a ng-click="deleteChild({{child.lastUpdateUserid}},'{{child.name}}','{{child.year}}','{{child.month}}')">删除</a>
+			 		</div>
+			 	</div>
+			 </div>			 
+		</div> 
+	</ion-content>
+</ion-view>

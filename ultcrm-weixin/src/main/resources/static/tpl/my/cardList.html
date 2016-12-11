@@ -1,0 +1,293 @@
+<style type="text/css" rel="stylesheet">
+	.cardList-content{
+		background-color:#f3f3f4;
+		color:#2fb0e3;
+	}
+	/*无卡券提示2*/
+	.cardList-content .list .info-no-card-line{
+		margin-top:200px;
+	}
+	/*无积分页面的提示样式*/
+	.cardList-content .list .info-no-card.prompt-text{
+		text-align:center;
+		color:#666666;
+	}
+	.cardList-content .card-useable{
+		position:relative;
+		background: url(/img/card_useable.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.cardList-content .card-used{
+		position:relative;
+		background: url(/img/card_used.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.cardList-content .card-expired{
+		position:relative;
+		background: url(/img/card_expired.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.cardList-content .coupon-useable{
+		position:relative;
+		background: url(/img/coupon_useable.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.cardList-content .coupon-used{
+		position:relative;
+		background: url(/img/coupon_used.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.cardList-content .coupon-expired{
+		position:relative;
+		background: url(/img/coupon_expired.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.cardList-content .card-worth{
+		position: absolute;
+	    width: 40%;
+	    text-align: left;
+	    vertical-align:bottom;
+	    height: 50%;
+	    left: 3%;
+    	top: 28%;
+	}
+	.cardList-content .coupon-worth{
+		position: absolute;
+	    width: 40%;
+	    text-align: left;
+	    vertical-align:bottom;
+	    height: 50%;
+	    left: 3%;
+    	top: 28%;
+	}
+	.cardList-content .yen{
+		font-size:26px;
+	}
+	.cardList-content .price{
+		font-size:47px;
+	}
+	.cardList-content .used-count{
+		font-size:47px;
+	}
+	.cardList-content .total-count{
+		font-size:26px;
+	}
+	.cardList-content .card-info{
+		position: absolute;
+	    width: 100%;
+	    text-align: left;
+	    height: 60%;
+	    left: 37%;
+	    top: 18px;
+	}
+	.cardList-content .coupon-info{
+		position: absolute;
+	    width: 100%;
+	    text-align: left;
+	    height: 50%;
+	    left: 37%;
+	    top: 29px;
+	}
+	.cardList-content .desc{
+	    width: 100%;
+	    font-size: 21px;
+	    height: 24px;
+	    line-height: 24px;
+	    margin-bottom: 5px;
+	}
+	.cardList-content .num{
+		width: 100%;
+		font-size: 14px;
+		text-align:left;
+		height: 16px;
+		line-height: 16px;
+		margin-bottom:2px;
+	}
+	.cardList-content .techlevelno{
+		width: 100%;
+		font-size: 14px;
+		text-align:left;
+		height: 16px;
+		line-height: 16px;
+	}
+	.cardList-content .ion-ios-arrow-right{
+		position: absolute;
+		right: 10px;
+	}
+	.cardList-content .padding.padding-normal{
+		padding: 15px 15px 0 15px;
+	}
+	.cardList-content .use-range{
+		position:absolute;
+		font-size:12px;
+		left: 15px;
+   	    bottom: 22px;
+        color:#666666;
+	}
+	.cardList-content .end-time{
+		padding-left: 15px;
+		color: #fff;
+		position:absolute;
+		bottom:0;
+		line-height:{{cardRect.height * 0.1735}}px;
+	}
+	.cardList-content .remain-count{
+		padding-left: 54%;
+		color: #fff;
+		position:absolute;
+		bottom:0;
+		line-height:{{cardRect.height * 0.1735}}px;
+	}
+	.cardList-content .new-mark{
+		position: absolute;
+		width: 36px;
+	    height: 30px;
+	    top: 0;
+	    right: 0;
+	}
+	.cardList-content .expired-grey{
+		color:#c1c2c2;
+	}
+</style>
+<ion-view view-title="我的卡券">
+	<ion-content class="cardList-content" on-swipe-right="expiredSwipeRight()" on-swipe-left="useableSwipeLeft()">
+
+		<!-- 可使用、已使用、已过期tab导航 -->
+		<div class="row state-title">
+			<div class="col">
+				<div class="state-item" ng-class="useableActive ? 'state-active' : 'state-inactive'" ng-click="viewUseable();">
+					可使用({{publishCount}})
+				</div>
+			</div>
+			<div class="col">
+				<div class="state-item" ng-class="expiredActive? 'state-active' : 'state-inactive'" ng-click="viewExpired();">
+					已失效({{expiredCount}})
+				</div>
+			</div>
+        </div>
+        
+        <!-- 可使用卡券List页面 -->
+        <div ng-if="useableActive" >
+        	<!-- 可使用卡券无项目，显示提示图片 -->
+        	<div class="list" ng-if="!hasPublishItem">
+        		<div class="row info-no-card-line">
+					<div class="col info-no-card prompt-text"><p>尊敬的客户，您暂时没有可使用的卡券！</p></div>
+				</div>
+        	</div>
+  
+        	<!-- 可使用卡券列表 ，非空才显示-->
+        	<div ng-if="hasPublishItem">
+		        
+			<!-- 
+				ng-repeat="card in cardList | filter:{state:1}"  重复可使用的卡
+			-->
+		       		<div class="padding padding-normal" ng-repeat="card in cardList | filter:{state:1}" ng-click="toCardDetail(card)">
+					    <div ng-click="toDetail()" class="card-useable" style="width:{{cardRect.width}}px;height:{{cardRect.height}}px;padding-top:{{(0.8265 * cardRect.height - 56) / 2}}px">
+					    	<div class="card-worth blue">
+					    		<span class="used-count">{{card.usedCount}}</span><span class="total-count">/{{card.totalCount}}</span>
+					    	</div>
+					    	<!-- 卡的信息 -->
+					    	<div class="card-info blue">
+					    		<p class="desc">{{card.name}}</p>
+					    		<p class="num">编号:{{card.cardNo}}</p>
+					    		<p clsss="techlevelno">{{card.techlevelno?"课程编码:"+card.techlevelno:"首次关注赠送"}}</p>
+					    	</div>
+					    	<div class="use-range">仅限线上预约课程使用</div>
+					    	<div class="end-time">
+						    	<span>截止日期:{{card.endDate | date:'yyyy/MM/dd'}}</span>
+				    		</div>
+				    		<div class="remain-count">
+						    	<span>剩余次数:{{card.remainCount}}</span>
+				    		</div>
+				    		<img ng-if="card.usedCount==0" src="/img/icon_mark.png" class="new-mark">
+						</div>
+					</div>
+					
+					<div class="padding padding-normal" ng-repeat="coupon in couponList | filter:{state:1}" ng-click="toCouponDetail(coupon)">
+					    <div ng-click="toDetail()" class="coupon-useable" style="width:{{cardRect.width}}px;height:{{cardRect.height}}px;padding-top:{{(0.8265 * cardRect.height - 56) / 2}}px">
+					    	<div class="coupon-worth blue">
+					    		<span class="yen">&yen;</span><span class="price">{{coupon.amount}}</span>
+					    	</div>
+					    	<div class="coupon-info blue">
+					    		<p class="desc">{{coupon.name}}</p>
+					    		<p class="num">编号:{{coupon.couponNo}}</p>
+					    	</div>
+					    	<div class="use-range">仅限线上预约课程使用</div>
+					    	<!-- 有效期 -->
+					    	<div class="end-time">
+						    	<span>有效期:{{coupon.startDate | date:'yyyy/MM/dd'}}—{{coupon.endDate | date:'yyyy/MM/dd'}}</span>
+				    		</div>
+				    		<!-- 可使用的优惠券都显示新 -->
+				    		<img src="/img/icon_mark.png" class="new-mark">
+						</div>
+					</div>
+		      	</div>
+		     
+		    </div>		
+		       		
+		       		
+		  <!-- 已失效卡券页面 -->	
+		      <div ng-if="expiredActive">
+			    	<!-- 如果已使用卡券没有项目，显示提示图片 -->
+		        	<div class="list" ng-if="!hasExpiredItem">
+
+		        		<div class="row info-no-card-line">
+							<div class="col info-no-card prompt-text"><p>尊敬的客户，您暂时没有已失效的卡券！</p></div>
+						</div>
+		        	</div>
+		        	
+		        	
+		        	<!-- 区分卡券，used和expired，加入filter -->
+			    	<!-- 已过期卡的列表 -->
+	    			<div ng-if="hasExpiredItem">
+	    			
+	    			<!-- ng-repeat="card in cardList | filter:{state:2}" 重复已失效的卡 -->
+		    			<div class="padding padding-normal" ng-repeat="card in cardList | filter:{state:2}" ng-click="toCardDetail(card)">
+						    <div ng-click="toDetail()" ng-class="{'card-used':card.isUsed,'card-expired':card.isExpired}" style="width:{{cardRect.width}}px;height:{{cardRect.height}}px;padding-top:{{(0.8265 * cardRect.height - 56) / 2}}px">
+						    	<div class="card-worth expired-grey">
+						    		<span class="used-count">{{card.usedCount}}</span><span class="total-count">/{{card.totalCount}}</span>
+						    	</div>
+						    	<div class="card-info expired-grey">
+						    		<p class="desc">{{card.name}}</p>
+						    		<p class="num">编号:{{card.cardNo}}</p>
+						    		<p clsss="techlevelno">{{card.techlevelno?"课程编码:"+card.techlevelno:"首次关注赠送"}}</p>
+						    	</div>
+						    	<div class="use-range expired-grey">仅限线上预约课程使用</div>
+						    	<div class="end-time">
+							    	<span>截止日期:{{card.endDate | date:'yyyy/MM/dd'}}</span>
+					    		</div>
+					    		<div class="remain-count">
+						    	<span>剩余次数:{{card.remainCount}}</span>
+				    		</div>
+							</div>
+						</div>
+					
+					<!-- ng-repeat="coupon in couponList | filter:{state:2}" 重复已失效的券-->
+						<div class="padding padding-normal" ng-repeat="coupon in couponList | filter:{state:2}" ng-click="toCouponDetail(coupon)">
+						    <div ng-click="toDetail()" ng-class="{'coupon-used':coupon.isUsed,'coupon-expired':coupon.isExpired}" style="width:{{cardRect.width}}px;height:{{cardRect.height}}px;padding-top:{{(0.8265 * cardRect.height - 56) / 2}}px">
+						    	<div class="coupon-worth expired-grey">
+						    		<span class="yen">&yen;</span><span class="price">{{coupon.amount}}</span>
+						    	</div>
+						    	<div class="coupon-info expired-grey">
+						    		<p class="desc">{{coupon.name}}</p>
+						    		<p class="num">编号:{{coupon.couponNo}}</p>
+						    	</div>
+						    	<div class="use-range expired-grey">仅限线上预约课程使用</div>
+						    	<div class="end-time">
+							    	<span>有效期:{{coupon.startDate |  date:'yyyy/MM/dd'}}—{{coupon.endDate | date:'yyyy/MM/dd'}}</span>
+					    		</div>
+
+							</div>
+						 </div>
+		       		</div>
+		       		
+		      </div>
+
+	</ion-content>
+</ion-view>

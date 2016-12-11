@@ -1,0 +1,211 @@
+  	
+  	<style type="text/css">
+  		body{
+			width:100%;
+			height:100%;
+			margin:0px auto;
+			padding:0px auto;
+			font-size:1.0em;
+		}
+		.seat_name{
+			width:100%;
+			height:70px;
+		/* 	border:1px solid red; */
+		}
+		.seat_name ul{
+			width:100%;
+			list-style-type:none;
+			margin-top:10px;
+			margin-left:10px;
+		}
+		
+		.seat_name ul li.name_font{
+			font-size:1.4em;
+			font-weight:bold;
+		}
+		.choice_seat{
+			width:100%;
+			height:aotu;
+			background-color:#EEEEEE;
+		/* 	border:1px solid red; */
+		}
+		.choice_seat ul{
+			width:100%;
+			list-style-type:none;
+		/* 	border:1px solid red; */
+		}
+		.choice_seat ul li{
+			float:left;
+		/* 	border:1px solid red; */
+		}
+		.clear{
+			clear:both;
+		}
+		.li_position{
+			margin-left:-10%;
+		}
+		.hr_1{
+			width:24%;
+		}
+		.hr_2{
+			width:48%;
+			margin-top:-14px;
+		}
+		.hr_1 hr{
+			border:0;
+			border-bottom:1px solid #999999;	
+		}
+		.hr_2 hr{
+			height:14px;
+			border:0;
+			border-top:1px solid #999999;
+			border-left:1px solid #999999;	
+			border-right:1px solid #999999;	
+		}
+		.choice_tip{
+			padding:10px 0px 0px 4%;
+			color:#999999;
+		/* 	border:1px solid red; */
+		}
+		.hr_2 span{
+			display:block;
+			margin:-15px 0px 0px 15px;
+			font-size:0.6em;
+		/* 	border:1px solid red; */
+		}
+		.hr_3{
+			width:95%;
+			border:0;
+			border-bottom:2px solid #999999;
+		}
+		.seat_table{
+			width:100%;
+			height:65%;
+			margin-left:10px;
+		/* 	border:1px solid red; */
+		}
+		.seat_table table{
+			width:100%;
+		/* 	border:1px solid red; */
+		}
+		.seat_table img{
+			width:30px;
+			height:30px;
+		}
+		.show_seat{
+			width:100%;
+			height:30px;
+			padding-top:2%;
+			margin-left:10px;
+			margin-bottom:10px;
+		/* 	border:1px solid red; */
+		}
+		.seat_tips{
+			width:100%;
+			height:60px;
+			margin-left:10px;
+		/* 	border:1px solid red;	 */
+		}
+		.seat_tips table{
+			width:50%;
+			height:50px;
+		/* 	border:1px solid red; */
+		}
+		.seat_tips img{
+			width:30px;
+			height:30px;
+		}
+		.seat_font{
+			font-size:0.6em;
+		}
+		.sure_seat{
+			width:100%;
+			height:50px;
+			text-align:center;
+			background-color:#DDDDDD;
+			font-size:1.6em;
+		/* 	border:1px solid red; */
+		}
+		
+		.seat_change_color{
+			background-color:#0C0;
+		}
+		
+		.sure_seat a{
+			display:block;
+			width:100%;
+			height:50px;
+			line-height:50px;
+			text-decoration:none;
+			color:#888888;
+			font-weight:bold;
+		}
+		.platform{
+			width:150px;
+			height:30px;
+			border:1px solid black;
+			text-align:center;
+			line-height:30px;
+			margin-left:30%;
+			margin-bottom:20px;
+		}
+  	</style>
+<ion-view view-title="快乐语文●座位信息">
+  	<ion-content class="service-content">  
+	<div class="seat_name">
+		<input id="hiddenPrice" type="hidden" value="{{hiddenPrice}}"/>
+		<input id="hiddenRoomId" type="hidden" value="{{hiddenRoomId}}"/>
+		<input id="hiddenTeachId" type="hidden" value="{{hiddenTeachId}}"/>
+		<input id="hiddenTeachName" type="hidden" value="{{hiddenTeachName}}"/>
+		<input id="hiddenStartTime" type="hidden" value="{{hiddenStartTime}}"/>
+    	 <ul>
+    	 	<li class="name_font" id="className">{{className}}</li>    	 	
+    	 	<li id="storeFullAddress">门店:{{storeFullAddress}}</li>
+
+    	 </ul>
+    </div>
+    <div class="choice_seat">
+    	<div> 
+    		<p class="choice_tip">请选择座位</p>
+<!--     		<ul> -->
+<!--     			<li class="hr_1 li_position"><hr/></li> -->
+<!--     			<li class="hr_2"><hr/><span id="storeFullAddress">{{storeFullAddress}}</span></li> -->
+<!--     			<li class="hr_1"><hr/></li> -->
+<!--     		</ul> -->
+    		<div class="clear"></div>
+    	</div>
+    	<hr class="hr_3"/>
+    	<div class="seat_table">
+   			<div class="platform">讲台</div>
+	   		<table id="seatTable">
+	   			<tr ng-repeat="itemx in X">
+					<td>{{$index+1}}</td>
+	   				<td ng-repeat="itemy in Y">
+	   					<div ng-if="itemy.num == 0" style="width:30px;height:30px;"></div>
+	   					<img id="itemy{{itemx.num}}-{{itemy.num}}" ng-if="itemy.num > 0" src="../../img/course/seat_01.jpg" 
+	   						ng-click="check_choice('{{itemx.num}}排{{itemy.num}}座','{{itemx.num}}-{{itemy.num}}');"/>
+	   				</td>		   				 
+	   			</tr>
+	   		</table>
+    		<div class="show_seat">    			
+    			{{show_seat}}
+    		</div>
+    		<div class="seat_tips">
+    			<table>
+    				<tr>
+    					<td><img src="../../img/course/seat_01.jpg"></td>
+    					<td><img src="../../img/course/seat_02.jpg"></td>
+    					<td><img src="../../img/course/seat_03.jpg"></td>
+    				</tr>
+    				<tr class="seat_font">
+    					<td>可选</td>
+    					<td>已选</td>
+    					<td>已售</td>
+    				</tr>
+    			</table>
+    		</div>
+    	</div>
+    </div>
+    <div class="{{sure_seat}}"><a ng-click="choice_seat();">确认选座</a></div>
+</ion-content>
+</ion-view>

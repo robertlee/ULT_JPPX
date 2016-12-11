@@ -1,0 +1,30 @@
+<link href="/css/my/cardDetail.css" rel="stylesheet">
+<ion-view view-title="卡券详情"> 
+	<ion-content class="cardDetail-content">
+		<div class="card-no">
+			<div class="h3 title">
+				{{cardDetail.cardNo}}
+			</div>
+		</div>
+	
+		<div class="card-info">
+			<div class="card-remain">{{cardDetail.usedCount}}/{{cardDetail.totalCount==0?"N":cardDetail.totalCount}}</div>
+			<div class="card-desc padding">{{cardDetail.cardName}}</div>
+			<div class="row padding">
+				<div class="plate-no col-50">{{cardDetail.techlevelno?"课程编码:"+cardDetail.techlevelno:cardDetail.description}}</div>
+				<div class="deadline col-50">截止日期：{{cardDetail.endDate}}</div>
+			</div>
+			<div class="used-list-title" ng-show="usedListState.show">
+				<div class="line"></div>
+				<div class="list-title">使用详情</div>
+			</div>
+			<div class="list">
+				<div class="item"  ng-repeat="item in cardDetail.cunsumptionItems">
+					<div>{{item.storeName}}</div>
+					<small>{{item.time}}  单号：{{item.orderNo}}</small>
+				</div>
+			</div>
+		</div>
+		
+	</ion-content> 
+</ion-view>

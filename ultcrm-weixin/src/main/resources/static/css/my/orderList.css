@@ -1,0 +1,48 @@
+.orderList-content .title{
+	background-color:#E5E5E5;
+	padding:0px;
+	margin:0px;
+	font-size:20px;
+	font-weight:bold;
+	height:50px;
+	line-height:50px;
+} 
+
+.orderList-content .title-block-inactive{
+	text-align:center;
+		height:50px;
+	line-height:50px;
+}
+
+.orderList-content .title-block-active{
+	text-align:center;
+	border-bottom:2px solid #0998dc;
+	color:#0998dc;
+	height:50px;
+	line-height:50px;
+	
+}
+
+.orderList-content .operation-line {
+	padding-left:0px;
+	padding-right:0px;
+	border-top:1px solid #f2f2f2;
+}
+
+.orderList-content .item{
+	padding-left:0px;
+	padding-right:0px;
+}
+
+.orderList-content .list button{
+	margin:0px;
+}
+
+.orderList-content .list .btnRow {
+	padding-top: 5px;
+	padding-bottom: 0px;
+}
+
+.orderList-content .commentBtn{
+		
+}

@@ -1,0 +1,70 @@
+<style type="text/css" rel="stylesheet">
+	/*按钮固定在页面下方*/
+	.modifyphone-content .fix-bottom{
+		position:relative;
+		top:368px;
+	}
+	/*输入框与页面顶端有一定距离 */
+	.modifyphone-content .input-top{
+		margin-top:35px !important;
+	}
+	/*提醒信息 */
+	.modifyphone-content .prompt-info{
+		font-size:14px;
+		margin-left:15px;
+		margin-top: 6px;
+	}
+	.modifyphone-content .row.verification{
+		margin-top: 22px;
+	}
+	.modifyphone-content .verification,
+	.modifyphone-content .item.phone-input,
+	.modifyphone-content .item.code-input,
+	.modifyphone-content .verification .col
+	{
+		margin:0;
+		padding:0;
+	}
+	.modifyphone-content .button-calm-custom{
+		margin-left: 8px;
+	}
+	.modifyphone-content .save-button{
+		margin-top: 35px;
+	}
+	.modifyphone-content .iconfont{
+		font-size: 18px;
+		margin-right: 8px;
+	}
+</style>
+<ion-modal-view view-title="我的信息">
+	<ion-content class="modifyphone-content" ng-controller="modifyPhoneCtrl">
+
+	   <div class="padding padding-normal">  	
+		   	<!-- 输入框 -->
+			<div class="item item-input input-custom input-top phone-input" >
+				<i class="iconfont icon-phone"></i>
+
+		    	<input id="modifyPhone-phoneInput" type="tel" placeholder="{{placeholderPhone || '请输入手机号'}}" 
+		    	ng-model="data.phone"  ng-maxlength=11 maxlength=11 >
+
+		    	<button class="icon ion-ios-close placeholder-icon delete" ng-click="resetPhone()"></button>
+		  	</div>
+		  	<p class="prompt-info orange" ng-show="data.phonePrompt">{{data.phonePrompt}}</p>
+		  	<p class="prompt-info assistant-grey ng-show" ng-show="!data.phonePrompt">真实手机号方便我们和您更好的联系！</p>		
+			<!-- 输入框 -->
+			<div class="row verification">
+				<div class="col">
+					<div class="item item-input input-custom code-input  ">
+						<i class="iconfont icon-vertify-code" ></i>
+			    		<input type="tel" ng-model="data.code" placeholder="请输入验证码" ng-maxlength=4 maxlength=4>
+			  		</div>
+				</div>
+			  	<button class="button button-sm button-calm-custom" ng-click="obtainCode()" ng-disabled="data.btndisable">{{data.btnText}}</button>
+			</div>
+			
+	  	    <p class="prompt-info orange ng-hide" ng-show="data.codePrompt">{{data.codePrompt}}</p>
+	  		<button class="button button-submit" style="margin-top: 22px;"  ng-disabled= "!(data.phone && data.code)" ng-click="toProfileList(customer.phone)">保存</button>
+	   </div>
+	</ion-content>
+</ion-view>
+

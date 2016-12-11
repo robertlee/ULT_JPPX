@@ -1,0 +1,204 @@
+  	<style type="text/css">
+  		body{
+			windth:100%;
+			height:100%;
+			margin:0px;
+			padding:0px;
+			font-size:0.8em;
+			color:#666666;
+		}
+		ul{
+			width:100%;
+			list-style-type:none;
+			
+		}
+		.course_addr{
+			height:50px;
+			padding-top:1%;
+		}
+		.course_addr li{
+			margin-left:10px;
+		}
+		.course_addr li.course_name{
+			font-size:1.4em;
+			font-weight:bold;
+		}
+		hr{
+			 border:0;
+			 border-top:1px solid #DDDDDD;
+			 width:100%;
+			 margin-bottom:0px;
+		}
+		.course_tip{
+			margin-left:3%;
+		}
+		.course_tip img{
+			width:13px;
+			height:13px;
+			color:red;
+		}
+		.course_img{
+			width:100%;
+			height:80px;
+			margin-top:-1px;
+			background-color:white;
+		}
+		.course_img ul{
+			width:100%;
+			height:80px;
+			padding-top:2%;
+		}
+		.unselected{
+			width:25%;
+			height:70px;
+			float:left;
+			margin-right:0px;
+		}
+		.img_01{
+			margin-left:-5%;
+		}
+		.unselected img{
+/* 			width:81px; */
+			height:78px;
+			margin:0px 0px;
+		}
+		.course_desc{
+			height:10%;
+			clear:both;
+			margin-top:10px;
+		}
+		.course_desc ul li{
+			margin-left:0px;
+		}
+		.course_desc span{
+			font-size:1.2em;
+			font-weight:900;
+			margin-bottom:0px;
+		}
+		.class_hour{
+			width:100%;
+			height:40px;
+			line-height:40px;
+			background-color:#EEEEEE;
+			color:red;
+			margin:0px auto;
+			font-size:1.4em;
+			padding-left:1%;
+		}
+		.class_choice{
+			width:100%;
+			margin-left:15px;
+			margin-top:10px;
+		}
+		.class_choice li table{
+			width:100%;
+		}
+		.time_star{
+			font-size:1.2em;
+			color:#000000;
+			font-weight:bold;
+		}
+		.time_star .class_name{
+			width:70%;
+		}
+		.time_star .class_click{
+			width:20%;
+		}
+		.time_starB{
+			font-weight:bold;
+			border: 1px solid #0C0;
+			text-align: center;
+			background-color: #0C0;
+			color: white;									
+			margin-right: 2px			
+		}
+		.time_end{
+			font-size:1.2em;
+		}
+		.time_starA{
+			font-weight:bold;
+			border:1px solid #cccccc;
+			color:#cccccc;
+			text-align:left;
+		}
+  	</style>
+<ion-view view-title="快乐语文●课程信息">
+  	<ion-content class="service-content">  	
+	<div class="course_addr">
+		<ul>
+			<li class="course_name">{{storeName}}</li>			
+		</ul>
+    </div>
+    <hr/>
+    <div>
+		<p class="course_tip"><img id="img_1" src="../../img/course/teach_addr.jpg"/>&nbsp;  
+		联系客服：0791-86836192 {{mobile}} 
+    	<p class="course_tip"><img id="img_1" src="../../img/course/teach_addr.jpg"/>&nbsp;        
+    	温馨提示：课程在开课前1周关闭在线售座报名，需要报名联系0791-86836192 </p>
+    	<div id="choice_img" class="course_img">
+    		<ul>
+				<li class="unselected"><img id='img_1' src='../../img/course/class_01.jpg'/></li>
+				<li class="unselected"><img id='img_2' src='../../img/course/class_02.jpg'/></li>
+				<li class="unselected"><img id='img_3' src='../../img/course/class_03.jpg'/></li>
+				<li class="unselected"><img id='img_4' src='../../img/course/class_04.jpg'/></li>
+			</ul>
+    	</div>
+    	<div class="course_desc">
+    		<ul>
+				<!-- 	<li><span id="courseName">{{courseName}} </li>  -->
+					    <li><span id="courseName"></span></li>
+			</ul>
+    	</div>
+    	<div>
+    		<div class="class_hour">
+    			课程安排
+    		</div>
+    		<div>
+    			<ul id="choice_1" class="class_choice" ng-repeat="item in choice_1">
+    				<li>
+						<table>
+							<tr class='time_star'>							
+								<td class="class_name">课程:{{item.schedule.className}}
+								</td>
+								
+
+							</tr>
+							<tr class='time_end'>
+								<td>时间:{{item.schedule.classTimeDetail}}</td>								
+							</tr>
+							<tr class='time_end' ng-if="item.schedule.startClassTime !=NULL">															
+								<!-- 	<td >学期:{{item.schedule.startClassTime}}至{{item.schedule.endClassTime}}</td>	-->	
+								<td >学期:{{item.schedule.startClassTime}}	</td>		
+								<td rowspan='2'><class="class_click" colspan="2" ng-if="item.schedule.status == '1'">
+									<a class="time_starB" ng-if="item.orderNum > 0" ng-click='choiceSeat({{item.schedule.lastUpdateUserid}},"{{item.schedule.seatType}}","{{item.schedule.classRoomName}}","{{item.schedule.businessAddress}}");'>报名</a>
+									<a class="time_starA" ng-if="item.orderNum == 0" ng-click=''>报名</a>
+								</td>
+								
+								<td colspan="2" ng-if="item.schedule.status == '0'">
+								</td>								
+							</tr>
+							<tr class='time_end' ng-if="item.schedule.startClassTime ==NULL">															
+								<td >学期:课程具体时间待定</td>
+								<td rowspan='2'><class="class_click" colspan="2" ng-if="item.schedule.status == '1'">
+									<a class="time_starB" ng-if="item.orderNum > 0" ng-click='choiceSeat({{item.schedule.lastUpdateUserid}},"{{item.schedule.seatType}}","{{item.schedule.classRoomName}}","{{item.schedule.businessAddress}}");'>报名</a>
+									<a class="time_starA" ng-if="item.orderNum == 0" ng-click=''>报名</a>
+								</td>
+								
+								<td colspan="2" ng-if="item.schedule.status == '0'">
+								</td>									
+							</tr>								
+							<tr class='time_end'>
+								<td>培训教室:{{item.schedule.classRoomName}} 余位:{{item.orderNum}}位</td>
+							</tr>
+							<tr class='time_end'>
+							    <td>学习课时:{{item.schedule.classHour}}学时</td>								
+							</tr>
+							
+						</table>
+					</li>
+    			</ul>
+    		</div>
+    	</div>
+    </div>
+</ion-content>
+</ion-view>

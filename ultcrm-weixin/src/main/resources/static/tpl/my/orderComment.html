@@ -1,0 +1,82 @@
+<style>
+	.orderComment-content .title{
+		font-size: 16px;
+		text-align: center;	
+	}
+	.orderComment-content .col, .orderComment-content .row{
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		line-heihgt: 43px;
+	}
+
+	.orderComment-content .icon-star{
+		position: relative;
+		margin: auto 4px;
+		font-size: 28px;
+		color: #cccccc;
+	}
+	.orderComment-content .icon-star.hightlight{
+		color: #fd9f19;
+	}
+	.orderComment-content .col-33{
+		padding-left: 15px;
+		color: #333;
+	}
+</style>
+<ion-view view-title="快乐语文●9培训评价">
+	<ion-content class="orderComment-content bg-background-grey">		
+        <div class="item item-single title">
+			请您对本次服务进行评价		
+        </div>
+        <div class="v-spacer"></div>
+        <div class="list" >
+        	<div class="item item-single" >
+        		<div class="row">
+        			<div class="col col-33">
+        				接待服务：
+        			</div>
+        			<div class="col col-67">
+
+        				<span class="icon-star iconfont icon-comment-star" ng-class="{hightlight:starValue}" ng-click="setSaStar($index)" ng-repeat="starValue in saStarArray track by $index"></span>
+        			</div>
+        		</div>	
+        	</div>
+        	<div class="item item-single" >
+        		
+        		  <div class="row">
+        			<div class="col col-33">
+        				专业技术：
+        			</div>
+        			<div class="col col-67">
+
+        				<span class="icon-star iconfont icon-comment-star" ng-class="{hightlight:starValue}" ng-click="setPlantStar($index)" ng-repeat="starValue in plantStarArray track by $index"></span>
+        			</div>
+        		</div>
+        	</div>	
+        	<div class="item item-single" >
+        		
+        		<div class="row">
+        			<div class="col col-33">
+        				课程服务：
+        			</div>
+        			<div class="col col-67">
+        				<span class="icon-star iconfont icon-comment-star" ng-class="{hightlight:starValue}" ng-click="setLobbyStar($index)" ng-repeat="starValue in lobbyStarArray track by $index"></span>
+        			</div>
+        		</div>
+        	</div>		  
+        </div>
+        <div class="v-spacer"></div>
+        <div class="padding padding-normal" style="background:#fff">
+        	<div class="item item-input" style="border-radius: 3px;">
+	    		<textarea type="text"  placeholder="请写下对服务的感受吧，对他人有很大的帮助！" rows="8" maxlength="200"
+	    		ng-model="data.comment"></textarea>
+	  		</div>
+        </div>
+<!--         <div class="v-spacer"></div> -->
+        <div class="padding padding-normal">
+			<button class="button button-submit" ng-disabled="!isValid()" ng-click="confirm()">发表评价</button>
+        </div>
+	</ion-content>
+</ion-view>
+

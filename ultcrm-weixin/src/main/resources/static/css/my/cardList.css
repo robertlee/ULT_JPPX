@@ -1,0 +1,134 @@
+.font-g1{
+	color:#666666;
+}
+.cardList-content .title{
+	background-color:#E5E5E5;
+	padding:0px;
+	margin:0px;
+	font-size:20px;
+	font-weight:bold;
+	height:50px;
+	line-height:50px;
+} 
+
+.cardList-content .title-block-inactive{
+	text-align:center;
+		height:50px;
+	line-height:50px;
+}
+
+.cardList-content .title-block-active{
+	text-align:center;
+	border-bottom:2px solid #0998dc;
+	color:#0998dc;
+	height:50px;
+	line-height:50px;
+	
+}
+.cardList-content .list .gap{
+	border-radius:5px;
+	margin:12px 10px;
+}
+
+.cardList-content .list .card .card-title{
+	height:60px;
+	border-bottom:none;
+}
+
+.card-title-color1{
+	background-color:#f4a33a;
+}
+.card-title-color2{
+	background-color:#50bb33;
+}
+
+.cardList-content .list .item .card-content-dot{
+	position:absolute;
+	width:100%;
+	height:10px;
+    top:0;
+    left:10px;
+	background-repeat:repeat-x;
+}
+
+.cardList-content .list .card .coupon-title{
+	height:60px;
+	border-bottom:none;
+}
+
+.cardList-content .list .card .service-type{
+	margin-top:-10px;
+	color:white;
+	font-size:24px;
+}
+
+.cardList-content .list .card .coupon-amount{
+	margin-top:-10px;
+	color:white;
+	font-size:36px;
+}
+
+.cardList-content .list .card .flower-pattern{
+	width:100%;
+	margin:-14px 0 0 0;
+}
+
+.delta{
+	position:absolute;
+	top:0;
+	right:0;
+	width:0;
+	height:0;
+	border-top-right-radius:5px;
+	border-left:solid 25px transparent;
+	border-bottom:solid 25px transparent;
+}
+.used-delta{
+	border-top:solid 25px #f48e08;
+	border-right:solid 25px #f48e08;
+}
+.expired-delta{
+	border-top:solid 25px #a0a0a0;
+	border-right:solid 25px #a0a0a0;
+}
+.new-delta{
+	border-top:solid 25px #ef473a;
+	border-right:solid 25px #ef473a;
+}
+/*已失效卡券三角形*/
+.has-used , .has-expired{
+	margin-top:-26px;
+	margin-left:-7px;
+	font-size:10px;
+	color:white;
+	transform:rotate(45deg);
+	-webkit-transform:rotate(45deg);
+}
+/*新卡券三角形*/
+ .has-new{
+	margin-top: -22px;
+    margin-left: 4px;
+	font-size:10px;
+	color:white;
+	transform:rotate(45deg);
+	-webkit-transform:rotate(45deg);
+}
+
+    
+/*无卡券提示*/
+.cardList-content .list .no-card-hint{
+	border-top:0;
+	border-bottom:0;
+}
+.cardList-content .list .no-card-hint img{
+	width:100%;
+}
+
+/*无卡券提示2*/
+.cardList-content .list .info-no-card-line{
+	margin-top:200px;
+}
+/*无积分页面的提示样式*/
+.cardList-content .list .info-no-card{
+	text-align:center;
+}

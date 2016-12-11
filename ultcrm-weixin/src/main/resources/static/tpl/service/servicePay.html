@@ -1,0 +1,218 @@
+  	<style type="text/css">
+  		body {
+			height: 100%;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			font: normal 100% Helvetica, Arial, sans-serif; 
+			font-size: 1.2em;
+			background-color:#eee;
+			color:#ccc;
+		}
+		div{
+			background-color:#FFF;
+		}
+		table {
+			width: 99%;
+			height: 100%;
+			margin-right: 1px;
+			margin-left: 1px;
+		}
+		#payDiv{
+			width:100%;
+			height:130px;
+		}
+		#payDiv td{
+			text-align:center;
+		}
+		
+		.priceOne{
+			color:#F00;
+			font-size:1.4em;
+		}
+		.payTime{
+			font-size:0.8em;
+		}
+		.payTime img{
+			width:13px;
+			height:13px;
+			overflow:hidden;
+		}
+		.payMoney1{
+			background-color:#0C0;
+			color:white;
+			height:33px;
+			line-height:33px;
+		}
+		.payMoney2{
+			background-color:#DDDDDD;
+			color:white;
+			height:33px;
+			line-height:33px;
+		}
+		
+		.payTip{
+			color:#0C0;
+			font-size:0.8em;
+		}
+		.processTip{
+			color:#C00;
+			font-size:0.8em;
+			clear:both;
+		}		
+		#priceDiv{
+			width:95%;
+			height:70px;
+			margin:10px auto;
+		}
+		#priceDiv table{
+			color:#666666;
+ 			font-size:16px;
+		}
+		.price_total{
+			padding-left:15px;
+		}
+		.price_value{
+			padding-right:15px;
+			text-align:right;
+		}
+		.actual{
+			font-size:1.6em;
+		}
+		
+		
+		#infoDiv{
+			width:100%;
+			height:60%;
+		}
+		#infoDiv table{			
+			color:#666666;
+ 			font-size:16px;			
+		}
+		.info{
+			padding-left:5px;
+			width:30%;
+		}
+		.info_value{
+			padding-right:5px;
+			text-align:left;
+			width:25%;
+		}
+		.payOk1{
+			text-align:center;
+			background-color:#0C0;
+			color:white;
+			height:33px;
+			line-height:33px;
+			width:30%;
+			
+		}
+		.payOk2{
+			text-align:center;
+			background-color:gray;
+			color:white;
+			height:33px;
+			line-height:33px;
+			width:30%;
+			
+		}		
+  	</style>
+ <ion-view view-title="快乐语文●支付">
+  	<ion-content class="service-content">  
+	<div id="payDiv">
+    	<table>
+        	<tr>
+            	<td class="priceOne" id="priceOne">{{priceOne}}</td>
+            </tr>
+            <tr>    																																	
+            	<td class="payTime" ng-if="bTimerDo==1"><img src="../../img/course/timer.jpg">&nbsp;&nbsp;支付剩余时间：<span id="countTime">{{countTime}}</span></td>		
+            </tr> 																													 					
+            <tr>
+            	<td class="payTip">请先填写学员，仔细核对信息，支付后不支持退款。</td>				
+            </tr>
+            <!-- <tr id="clickPay" class="payMoney1">   --> 
+            <!-- 	<td ng-click="pay();">立即付款</td> --> 
+            <!-- </tr>                                  --> 
+        </table>
+    </div>
+    <div id="priceDiv">
+    	<table>
+        	<tr>
+            	<td class="price_total">总价：</td>
+                <td class="price_value" id="totalPrice">{{totalPrice}}</td>
+            </tr>
+			<tr>
+				<td colspan=2><hr/></td>
+			</tr>
+            <tr>
+            	<td class="price_total">应付金额：</td>
+                <td class="price_value actual" id="actualPrice">{{actualPrice}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="infoDiv">
+    	
+		<table>
+        	<tr>
+            	<td class="info">班级:</td>
+                <td class="info_value" >{{className}}</td>				
+            </tr>	
+			<tr>
+            	<td class="info">学员:</td>
+				
+				<td class="info_value">
+					
+					<!-- 输入框 -->
+					<!-- <select ng-init="selectedChild = childList[2]"  ng-options="a.name for a in childList" ng-model="selectedChild"  
+					 	     ng-change="changeChild(selectedChild)">	-->						
+							<!-- <option value="">--请选择--</option>-->
+					 <select ng-model="selectedChild" ng-options="a.name for a in childList"  ng-change="changeChild(selectedChild)">						
+					 <input id="hiddenChildName" type="hidden" value="{{hiddenChildName}}"/>		
+					 </select>
+					 
+					 
+				</td>	
+				
+				
+				<td class="payOk1" ng-click="toMyChild();">添加儿童</td>
+				
+            </tr>			
+        	<tr>
+            	<td class="info">教室:</td>
+                <td colspan="2" class="info_value">{{classAddress}}</td>
+            </tr>		
+        	<tr>
+            	<td class="info">座位:</td>
+                <td class="info_value" >{{classSeat}}</td>
+				<td class="payOk1" ng-click="reChoice();">重选座位</td>
+            </tr>			
+        	<tr>
+            	<td class="info">开课日期:</td>
+                <td colspan="2" class="info_value" ng-if="orderInfo.startClassTime !=null-null">{{classDetail|limitTo:10}}</td>	
+				<td colspan="2" class="info_value" ng-if="orderInfo.startClassTime ==null-null">具体时间待定</td>			
+            </tr>	
+        	<tr>
+            	<td class="info">上课时间:</td>
+                <td colspan="2" class="info_value" >{{hiddenclassTimeDetail}}</td>				
+            </tr>				
+        	<tr>
+            	<td class="info">手机:</td>
+                <td class="info_value" >{{contactPhone}}</td>
+				<td class="payOk1" ng-click="toMy();">修改号码</td>
+            </tr>
+
+            <tr >            	
+				<td class="payOk2">   </td>
+				<td id="start_pay" class="payOk1" ng-click="toPay();">立即付款</td>
+				<td class="payOk2">   </td>
+            </tr>
+     			
+        </table>
+    </div>	
+	<div class="processTip">  支付过程有疑问，请联系客服电话18682455891！ </div>	
+	<div class="processTip">  提示：报名支付，请确认座位 、手机及其学员姓名！</div>		
+	
+	
+</ion-content>
+</ion-view>

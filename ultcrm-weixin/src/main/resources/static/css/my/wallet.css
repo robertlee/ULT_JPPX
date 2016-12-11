@@ -1,0 +1,30 @@
+.wallet .first-row{
+	font-size:20px;
+}
+
+
+.wallet .second-row{
+	font-size:14px;
+	color:#333333;
+}
+
+
+.wallet .item img{
+	width:100%;
+	height:100%;
+	margin-top: auto;
+    margin-bottom: auto;
+}
+
+.score-icon{
+	background-image:url(/img/my/wallet/icon_b.png);
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.card-icon{
+	background-image:url(/img/my/wallet/icon_e.png);
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+}

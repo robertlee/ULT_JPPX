@@ -1,0 +1,154 @@
+
+/*********************************************门店*************************************/
+
+@store-item-height:210px*@scale;
+@store-item-padding-left:22px*@scale;//左右留白
+@store-item-padding-top:24px*@scale;//上下留白
+@store-pic-width:(@store-item-height)-(@store-item-padding-top*2);//图片宽度
+@store-pic-heigh:(@store-item-height)-(@store-item-padding-top*2);//图片高度
+@store-desc-left:@store-pic-width+@store-item-padding-left+30px*@scale;//描述左边距离
+
+.list .item.store-info{
+    position: relative;
+    width: 100%;
+    height: @store-item-height;
+    border: none;
+
+}
+.list .item.store-info .store-pic{
+    position: absolute;
+    display: inline-block;
+    width: @store-pic-width;
+    height: @store-pic-heigh;
+    top: @store-item-padding-top;
+    left: @store-item-padding-left;
+    overflow: hidden;
+}
+.list .item.store-info .store-desc{
+    position: absolute;
+    display: inline-block;
+    width: 240px;
+    height: @store-pic-heigh;
+    left: @store-desc-left; 
+    top: @store-item-padding-top;
+}
+.list .item.store-info .store-desc .name{
+    font-size: 30px*@scale;
+    color: @important-grey;
+    vertical-align: middle;
+}
+.list .item.store-info .store-desc .address{
+    margin-top: -2px+10px*@scale;
+    padding: 0;
+    font-size: 26px*@scale;
+    color: @sub-grey;
+    vertical-align: middle;
+    white-space: pre-wrap;
+}
+.list .item.store-info .store-desc .phone{
+    margin-top: -2px+10px*@scale;
+    font-size: 26px*@scale;
+    color: @sub-grey;
+    vertical-align: middle;
+    white-space: pre-wrap;
+}
+
+/*********************************************************** 个人信息 *******************************************/
+
+@profile-info-height: 167px * @scale;
+@profile-right-margin: 28px * @scale;
+@profile-avatar-font-size: @font-size-important-sub * @scale;
+
+.profile-info{
+    position: relative;
+    height: @profile-info-height;
+    border-bottom: solid 1px @border-grey;
+    padding: 0;
+}
+.profile-info .avatar{
+    position: absolute;
+    top: (@profile-info-height - @avatar-sm-size) / 2;
+    right: @profile-right-margin;
+    margin: auto 0;
+}
+.profile-info .detail{
+    position: absolute;
+    left: @list-item-padding;
+    font-size: @list-text-size;
+    color: @important-grey; 
+    line-height: @profile-info-height; 
+}
+
+/***************************************************radio选择********************************************************/
+@custom-item-raido-left:33px * @scale;
+@custom-radio-text-left:7px * @scale;
+@cutomm-radio-icon-right:12px * @scale;
+@cutomm-radio-icon-bottom:19px * @scale;
+
+.list .item.custom-item-radio{
+	position: relative;
+	margin: 8px @custom-item-raido-left 0 @custom-item-raido-left;
+	border-bottom: solid 1px @border-grey;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+.list .item.custom-item-radio input {
+  /* hide any radio button inputs elements (the ugly circles) */
+	position: absolute;
+	left: -9999px;
+}
+.list .item.custom-item-radio .radio-text{
+	position: relative;
+	left: -@custom-radio-text-left;
+	color: @important-grey;
+	font-size: @font-size-important-sub*@scale;
+	height: 18px;
+	line-height: 18px;
+	bottom: -7px;
+}
+
+.list .item.custom-item-radio .custom-radio-icon{
+	position: absolute;
+	font-size: @font-size-important-sub*@scale;
+    right: @cutomm-radio-icon-right;
+    bottom: @cutomm-radio-icon-bottom;
+}
+
+/*******************************************************卡券列表***************************************************/
+@state-title-height: 86px * @scale;
+
+.cardList-content .state-title{
+	position: relative;
+	margin-top: 0;
+	width: 100%;
+	height: @state-title-height;
+	background-color: white;
+	border-bottom: solid 1px @border-grey;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+.cardList-content .state-title .state-item.state-inactive{
+	font-size: @font-size-normal*@scale;
+	margin: -10px 20px 0 20px;
+	text-align: center;
+	line-height: -4px + @state-title-height;
+	color: @sub-grey;
+	border-bottom: solid 2px transparent;
+	border-top: solid 2px transparent;
+	border-right: none;
+	border-left: none;
+}
+.cardList-content .state-title .state-item.state-active{
+	font-size: @font-size-normal*@scale;
+	margin: -10px 20px 0 20px;
+	text-align: center;
+	line-height: -4px + @state-title-height;
+	color: #2fb0e3;
+	border-bottom: solid 2px @blue;
+	border-top: solid 2px transparent;
+	border-right: none;
+	border-left: none;
+}
+

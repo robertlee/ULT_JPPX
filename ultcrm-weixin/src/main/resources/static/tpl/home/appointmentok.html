@@ -1,0 +1,66 @@
+<style>
+/*预约图标居中*/
+.aptmentok-content .icon-appointmentok{
+	position: relative;
+	font-size: 63px;
+	text-align: center;
+	vertical-align: middle;
+	margin-right: 12px;
+	top: -3px;
+}
+.aptmentok-content .aptmentok-text{
+	height: 104px;
+	line-height: 104px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 20px;
+	width: 100%;
+}
+.aptmentok-content .item-single .text{
+	font-size: 16px;
+	color: #333;
+	padding-left: 16px;
+}
+.aptmentok-content .item-single .text span{
+	color: #333;
+	margin-left: 12px;
+}
+.aptmentok-content .item-single .icon-locate{
+	position: relative;
+	margin-left: 28px;
+	font-size: 22px;
+	
+}
+.aptmentok-content .aptment-info{
+	margin-bottom: 10px;
+}
+</style>
+<ion-view view-title="快乐语文●启迪教育">
+  <ion-content class="aptmentok-content">
+    
+    <div class="blue aptmentok-text"><i class="icon iconfont icon-appointmentok blue center"></i>&nbsp;{{titleStr}}</div>
+    <div class="v-spacer"></div>
+   	<div class="list aptment-info">
+   		<div class="item item-single">
+		    <p class="text" style="color:#666">服务单号:<span>{{orderId}}</span></p>
+		 </div>
+		 <div class="item item-single" ng-click="toDirect()">
+		    <p class="text"  style="color:#666">预约中心:<span>{{appointmentData.storeName}}</span><i class="iconfont icon-locate orange"></i></p>
+		 </div>
+		 <div class="item item-single">
+		    <p class="text"  style="color:#666">预约时间:<span>{{appointmentData.segmentDate}} {{appointmentData.segmentTime}}:00</span></p>
+		 </div>
+   	</div>
+ 	
+    <div ng-if="canReceive()"  class="orange clearfix" style="padding:5px 30px 0 16px">
+	    <div style="width:30px;float:left;">注：</div>
+	    <div  style="float:left;width:calc(100% - 30px);width:-webkit-calc(100% - 30px)"> 为感谢您的光临，将为您送出预约优惠劵,请领取后到中心出示优惠券可抵扣现金!</div>
+    </div>
+ 
+    <div class="padding padding-normal" style="margin-top:30px;">
+    	<button ng-if="canReceive()" class="button button-submit" ng-click="getCard()">我要领券</button>
+    	
+    	<button ng-if="!canReceive()" class="button button-submit" ng-click="toOrderList()">订单查询</button>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,72 @@
+body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+
+/*
+ * http://docs.angularjs.org/api/ng/directive/ngShow#usage_animations
+ */
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+.outer {
+    width: 2px;
+    height: 60px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.detail{
+	font-size:12px;
+}
+
+.line-box{
+	padding:0px;
+	height: 50px;
+}
+
+.line-box-left {
+	border-right:1px solid #D9D9D7;
+	height: 100%;
+}
+
+.line-box-right {
+	border-left:1px solid #D9D9D7;
+	height: 100%;
+}
+
+.title-line {
+	background-color:#0998DC;
+	border-top-left-radius: 2px;
+	border-top-right-radius:2px;
+}
+
+.data-line {
+	background-color:#E9E9E9;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius:2px;
+}
+
+.data-line-no-radius {
+	background-color:#E9E9E9;
+}
+
+.data-box {
+/* 	margin-left:10px;
+	margin-right:10px; */
+	background-color:#E7F5FB;
+}

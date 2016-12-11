@@ -1,0 +1,197 @@
+	<!-- 领取优惠券页面 -->
+<style type="text/css">
+
+	.cardCouponBatch-content .card-useable{
+		position:relative;
+		background: url(/img/card_useable.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.cardCouponBatch-content .card-used{
+		position:relative;
+		background: url(/img/card_used.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.cardCouponBatch-content .card-expired{
+		position:relative;
+		background: url(/img/card_expired.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.cardCouponBatch-content .coupon-useable{
+		position:relative;
+		background: url(/img/coupon_useable.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.cardCouponBatch-content .coupon-used{
+		position:relative;
+		background: url(/img/coupon_used.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.cardCouponBatch-content .coupon-expired{
+		position:relative;
+		background: url(/img/coupon_expired.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.cardCouponBatch-content .card-worth{
+		position: absolute;
+	    width: 40%;
+	    text-align: left;
+	    vertical-align:bottom;
+	    height: 50%;
+	    left: 3%;
+    	top: 28%;
+	}
+	.cardCouponBatch-content .coupon-worth{
+		position: absolute;
+	    width: 40%;
+	    text-align: left;
+	    vertical-align:bottom;
+	    height: 50%;
+	    left: 3%;
+    	top: 28%;
+	}
+	.cardCouponBatch-content .yen{
+		font-size:26px;
+	}
+	.cardCouponBatch-content .price{
+		font-size:47px;
+	}
+	.cardCouponBatch-content .used-count{
+		font-size:47px;
+	}
+	.cardCouponBatch-content .total-count{
+		font-size:26px;
+	}
+	.cardCouponBatch-content .card-info{
+		position: absolute;
+	    width: 100%;
+	    text-align: left;
+	    height: 60%;
+	    left: 37%;
+	    top: 18px;
+	}
+	.cardCouponBatch-content .coupon-info{
+		position: absolute;
+	    width: 100%;
+	    text-align: left;
+	    height: 50%;
+	    left: 37%;
+	    top: 29px;
+	}
+	.cardCouponBatch-content .desc{
+	    width: 100%;
+	    font-size: 21px;
+	    height: 24px;
+	    line-height: 24px;
+	    margin-bottom: 5px;
+	}
+	.cardCouponBatch-content .num{
+		width: 100%;
+		font-size: 14px;
+		text-align:left;
+		height: 16px;
+		line-height: 16px;
+		margin-bottom:2px;
+	}
+	.cardCouponBatch-content .techlevelno{
+		width: 100%;
+		font-size: 14px;
+		text-align:left;
+		height: 16px;
+		line-height: 16px;
+	}
+	.cardCouponBatch-content .ion-ios-arrow-right{
+		position: absolute;
+		right: 10px;
+	}
+	.cardCouponBatch-content .padding.padding-normal{
+		padding: 15px 15px 0 15px;
+	}
+	.cardCouponBatch-content .use-range{
+		position:absolute;
+		font-size:12px;
+		left: 15px;
+   	    bottom: 22px;
+        color:#666666;
+	}
+	.cardCouponBatch-content .end-time{
+		padding-left: 15px;
+		color: #fff;
+		position:absolute;
+		bottom:0;
+		line-height:{{cardRect.height * 0.1735}}px;
+	}
+	.cardCouponBatch-content .remain-count{
+		padding-left: 54%;
+		color: #fff;
+		position:absolute;
+		bottom:0;
+		line-height:{{cardRect.height * 0.1735}}px;
+	}
+	.cardCouponBatch-content .new-mark{
+		position: absolute;
+		width: 36px;
+	    height: 30px;
+	    top: 0;
+	    right: 0;
+	}
+	.cardCouponBatch-content .expired-grey{
+		color:#c1c2c2;
+	}
+</style>
+<ion-view view-title="快乐语文●启迪教育" >
+	<ion-content class="cardCouponBatch-content">
+
+
+	<!-- 所以位置信息根据背景图比例计算 -->
+	<div class="padding padding-normal" >
+	 	
+	 	<div ng-if="isCard" ng-click="toDetail()" class="card-useable" style="width:{{cardRect.width}}px;height:{{cardRect.height}}px;padding-top:{{(0.8265 * cardRect.height - 56) / 2}}px">
+	    	<div class="card-worth blue">
+	    		<span class="used-count">{{card.usedCount}}</span><span class="total-count">/{{card.totalCount}}</span>
+	    	</div>
+	    	<!-- 卡的信息 -->
+	    	<div class="card-info blue">
+	    		<p class="desc">{{card.name}}</p>	    	
+	    		<p clsss="techlevelno">{{card.techlevelno?"课程编码:"+card.techlevelno:""}}</p>
+	    	</div>
+	    	<div class="use-range">仅限线上预约课程使用</div>
+	    	<div class="end-time">
+		    	<span>截止日期:{{card.endDate | date:'yyyy/MM/dd'}}</span>
+    		</div>
+    		<div class="remain-count">
+		    	<span>剩余次数：{{card.remainCount}}</span>
+    		</div>
+    		<img ng-if="card.usedCount==0" src="/img/icon_mark.png" class="new-mark">
+		</div>
+		
+		
+	    <div ng-if="isCoupon" ng-click="toDetail()" class="coupon-useable" style="width:{{cardRect.width}}px;height:{{cardRect.height}}px;padding-top:{{(0.8265 * cardRect.height - 56) / 2}}px">
+	    	<div class="coupon-worth blue">
+	    		<span class="yen">&yen;</span><span class="price">{{coupon.amount}}</span>
+	    	</div>
+	    	<div class="coupon-info blue">
+	    		<p class="desc">{{coupon.name}}</p>
+	    		<!-- <p class="num">编号：NO.{{coupon.couponNo}}</p> -->
+	    	</div>
+	    	<div class="use-range">仅限线上预约课程使用</div>
+	    	<!-- 有效期 -->
+	    	<div class="end-time">
+		    	<span>有效期:{{coupon.startDate | date:'yyyy/MM/dd'}}—{{coupon.endDate | date:'yyyy/MM/dd'}}</span>
+    		</div>
+    		<!-- 可使用的优惠券都显示新 -->
+    		<img src="/img/icon_mark.png" class="new-mark">
+		</div>
+		
+		
+    	<button class="button button-submit" ng-if="orderId" style="margin-top: 30px;" ng-click="receive()">立即领取</button>
+	</div>
+
+    </ion-content>
+</ion-view>
+

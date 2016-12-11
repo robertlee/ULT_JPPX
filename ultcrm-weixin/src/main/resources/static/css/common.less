@@ -1,0 +1,1048 @@
+/*
+灰色： 
+1. 重度灰 -- important-grey #333333 重要信息
+2. 中度灰 -- sub-grey #666666  次要信息
+3. 轻度灰 -- assistant-grey #999999 辅助信息
+3. icon灰 -- disabled-grey #a8a8a8 不可用状态
+4. 分割线灰 -- border-grey #e0e0e0 边框，分割线
+5. 背景灰 -- background-grey #f3f3f4 背景灰
+6. 橙色 -- orange #ff9d28
+7. 蓝色 -- blue #35b2e3
+ */
+//-----定义------------
+@scale: 0.55;  //缩放比率,高保真基于iphone6设计，理论缩放比为 0.5，根据实际情况调整
+
+//常用颜色
+@important-grey: #333333;
+@sub-grey: #666666;
+@assistant-grey: #999999;
+@disabled-grey: #a8a8a8;
+@border-grey: #e0e0e0;
+@background-grey: #f3f3f4;
+@orange: #ff9d28;
+@yellow: #fd9f19;
+@blue: #35b2e3;
+@green: #35ba8a;
+@alert-red: #ff5259;
+
+//字体大小,分为重要，一般，次要，每种程度分为两个状态，sub后缀弱一级
+@font-size-important: 36px;
+@font-size-important-sub: 30px;
+@font-size-normal: 28px;
+@font-size-normal-sub: 26px;
+@font-size-weak: 22px;
+@font-size-weak-sub: 20px;
+
+/*字体图标*/
+@font-face {font-family: "iconfont";
+  src: url('/fonts/iconfont.eot'); /* IE9*/
+  src: url('/fonts/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('/fonts/iconfont.woff') format('woff'), /* chrome、firefox */
+  url('/fonts/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('/fonts/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-maintain:before { content: "\e600"; }
+.icon-pending:before { content: "\e602"; }
+.icon-comment:before { content: "\e603"; }
+.icon-order-off:before { content: "\e604"; }
+.icon-locate:before { content: "\e605"; }
+.icon-service-off:before { content: "\e606"; }
+.icon-activity-off:before { content: "\e607"; }
+.icon-working:before { content: "\e609"; }
+.icon-painting:before { content: "\e60a"; }
+.icon-other:before { content: "\e60b"; }
+.icon-repair:before { content: "\e60c"; }
+.icon-mytech:before { content: "\e60e"; }
+.icon-washing:before { content: "\e611"; }
+.icon-selectservice:before { content: "\e612"; }
+.icon-selectstore:before { content: "\e613"; }
+.icon-done:before { content: "\e614"; }
+.icon-appointmentok:before { content: "\e615"; }
+.icon-avatar:before { content: "\e616"; }
+.icon-edit:before { content: "\e601"; }
+.icon-garage:before { content: "\e617"; }
+.icon-select:before { content: "\e618"; }
+.icon-radio-on:before { content: "\e61b"; }
+.icon-radio-off:before { content: "\e61c"; }
+.icon-my-off:before { content: "\e619"; }
+.icon-my-on:before { content: "\e61a"; }
+.icon-order-on:before { content: "\e61d"; }
+.icon-service-on:before { content: "\e61e"; }
+.icon-activity-on:before { content: "\e61f"; }
+.icon-mytech:before { content: "\e608"; }
+.icon-myorder:before { content: "\e60d"; }
+.icon-myscore:before { content: "\e60f"; }
+.icon-mycards:before { content: "\e610"; }
+.icon-comment-star:before { content: "\e620"; }
+.icon-vertify-code:before { content: "\e621"; }
+.icon-phone:before { content: "\e622"; }
+.icon-confirm:before { content: "\e623"; }
+.icon-prompt:before { content: "\e624"; }
+.icon-alert:before { content: "\e625"; }
+
+
+/*********************************************************** 通用抽象 *******************************************/
+/*内部留白*/
+.padding.padding-normal{
+	padding:15px;
+}
+
+/*********************************************************** 颜色 *******************************************/
+.important-grey{
+    color: @important-grey !important;
+ }
+.sub-grey{
+    color: @sub-grey !important;
+}
+.assistant-grey{
+    color: @assistant-grey !important;
+}
+.disabled-grey{
+    color: @disabled-grey !important;
+}
+.border-grey{
+    color: @border-grey !important;
+}
+.background-grey{
+    color: @background-grey !important;
+}
+.orange{
+    color: @orange !important;
+}
+.yellow{
+    color: @yellow !important;
+}
+.blue{
+    color: @blue !important;
+}
+.green{
+    color: @green !important;
+}
+.alert-red{
+    color: @alert-red !important;
+}
+.bg-important-grey{
+    background-color: @important-grey !important;
+ }
+.bg-sub-grey{
+    background-color: @sub-grey !important;
+}
+.bg-assistant-grey{
+    background-color: @assistant-grey !important;
+}
+.bg-disabled-grey{
+    background-color: @disabled-grey !important;
+}
+.bg-border-grey{
+    background-color: @border-grey !important;
+}
+.bg-background-grey{
+    background-color: @background-grey !important;
+}
+.bg-orange{
+    background-color: @orange !important;
+}
+.bg-blue{
+    background-color: @blue !important;
+}
+.bg-alert-red{
+    background-color: @alert-red !important;
+}
+
+/*********************************************************** icons 图标 *******************************************/
+
+ @icon-img-width: 420px * @scale;     //图标图片原始尺寸,基于iphone6设计,如果尺寸大小改变，记得修改
+ @icon-img-height: 500px * @scale;    //图标图片原始高度
+ @icon-hold-size: 105px * @scale;  //单个图标占用的空间，图片上位105px；
+/*自定义图标*/
+//自定义图标，加载所有图标的合成图片
+.icon-custom{
+    background:url(/img/icons.png);
+ 	background-size: @icon-img-width @icon-img-height;  
+ 	background-repeat: no-repeat;
+    width: 0;
+    height: 0;
+}
+
+//-------------------------------车标 ----------------------
+ //奥迪
+ .icon-custom.icon-audi{
+     width: 105px * @scale;
+     height: 35px * @scale;
+     background-position:  0 0;
+ }
+  //保时捷
+ .icon-custom.icon-porsche{
+     width: 58px * @scale;
+     height: 76px * @scale;
+     background-position:  -(@icon-hold-size) 0;
+ }
+ //宝马
+ .icon-custom.icon-bmw{
+     width: 77px * @scale;
+     height: 76px * @scale;
+     background-position:  -(2 * @icon-hold-size) 0;
+ }
+
+//奔驰
+ .icon-custom.icon-benz{
+     width: 77px * @scale;
+     height: 76px * @scale;
+     background-position:  -(3 * @icon-hold-size) 0;
+}
+
+  //路虎
+ .icon-custom.icon-land-rover{
+     width: 103px * @scale; //大图图标错位，所以宽增加
+     height: 55px * @scale;
+     background-position:  0  -(@icon-hold-size);
+ }
+
+ //大众
+ .icon-custom.icon-vw{
+     width: 77px * @scale;
+     height: 76px * @scale;
+     background-position:  -(@icon-hold-size)  -(@icon-hold-size);
+ }
+ //----------------------------------------------小图标
+ @icon-sm-scale: 0.65;
+  //奥迪
+ .icon-custom.icon-audi-sm{
+     width: 105px * @icon-sm-scale * @scale;
+     height: 35px * @icon-sm-scale * @scale  + 2px;
+     background-size: (@icon-img-width * @icon-sm-scale) (@icon-img-height * @icon-sm-scale);  
+     background-position:  0 0;
+ }
+  //保时捷
+ .icon-custom.icon-porsche-sm{
+     width: 58px * @icon-sm-scale * @scale;
+     height: 76px * @icon-sm-scale * @scale;
+     background-size: (@icon-img-width * @icon-sm-scale) (@icon-img-height * @icon-sm-scale);  
+     background-position:  -(@icon-hold-size * @icon-sm-scale) 0;
+ }
+ //宝马
+ .icon-custom.icon-bmw-sm{
+     width: 77px * @icon-sm-scale * @scale;
+     height: 76px * @icon-sm-scale * @scale;
+     background-size: (@icon-img-width * @icon-sm-scale) (@icon-img-height * @icon-sm-scale);  
+     background-position:  -(2 * @icon-hold-size * @icon-sm-scale) 0;
+ }
+
+//奔驰
+ .icon-custom.icon-benz-sm{
+     width: 77px * @icon-sm-scale * @scale;
+     height: 76px * @icon-sm-scale * @scale;
+     background-size: (@icon-img-width * @icon-sm-scale) (@icon-img-height * @icon-sm-scale);  
+     background-position:  -(3 * @icon-hold-size * @icon-sm-scale) 0;
+}
+
+  //路虎
+ .icon-custom.icon-land-rover-sm{
+     width: 103px * @icon-sm-scale * @scale; //大图图标错位，所以宽增加
+     height: 51px * @icon-sm-scale * @scale + 2px;
+     background-size: (@icon-img-width * @icon-sm-scale) (@icon-img-height * @icon-sm-scale);  
+     background-position:  0  -(@icon-hold-size * @icon-sm-scale);
+ }
+
+ //大众
+ .icon-custom.icon-vw-sm{
+     width: 77px * @icon-sm-scale * @scale;
+     height: 76px * @icon-sm-scale * @scale;
+     background-size: (@icon-img-width * @icon-sm-scale) (@icon-img-height * @icon-sm-scale);  
+     background-position:  -(@icon-hold-size * @icon-sm-scale)  -(@icon-hold-size * @icon-sm-scale);
+ }
+
+//----------以下为测试用图标，请勿使用--------
+// .icon-custom.icon-name{
+//   width: 30px;
+//   background: url(/img/icon_c_press.png);
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   background-position: center;
+// }
+
+// .icon-custom.icon-test{
+//     width: 30px;
+// 	background:url(/img/icons.png);
+// 	background-size: 50%;
+// 	background-repeat: no-repeat;
+// 	background-position: 0 0;
+// }
+/*********************************************************** button 按钮 *******************************************/
+//按钮相关变量
+@button-darken-percent: 10%; //按钮激活状态颜色加深百分比
+@button-height: 80px * @scale;	
+@button-font-size: @font-size-important * @scale;
+@button-color: #fff;
+@button-radius: 3px;
+@button-sm-height: 65px * @scale;
+@button-sm-width: 210px * @scale;
+@button-sm-font-size: @font-size-important-sub * @scale;
+/*按钮固定底部*/
+.fix-bottom{
+    position: relative;
+    bottom: -10px;
+}
+
+/*提交按钮*/
+.button.button-submit{
+	background: @orange;
+	border-radius: @button-radius;
+	border: none;
+	width: 100%;
+	color: @button-color;
+	height: @button-height;
+    min-height: @button-height;
+	line-height: @button-height;
+	font-size: @button-font-size;
+}
+
+/*背景色加深*/
+.button-submit.activated{
+	background: darken(@orange,@button-darken-percent);
+}
+
+/*取消按钮*/
+.button.button-cancel{
+	background: @disabled-grey;
+	border-radius: @button-radius;
+	border: none;
+	width: 100%;
+	color: @button-color;
+    min-height: @button-height;
+	height: @button-height;
+	line-height: @button-height;
+	font-size: @button-font-size;
+}
+
+.button-cancel.activated{
+	background: darken(@disabled-grey,@button-darken-percent);
+}
+
+/*不可点击按钮*/
+.button.button-disabled{
+	background: @assistant-grey;
+	border-radius: @button-radius;
+	border: none;
+	width: 100%;
+	color: @button-color;
+	min-height: @button-height;
+    height: @button-height;
+	line-height: @button-height;
+	font-size: @button-font-size;
+    pointer-events: none;
+}
+/*自定义,蓝色按钮*/
+.button.button-calm-custom{
+    background: @blue;
+	border-radius: @button-radius;
+	border: none;
+	width: 100%;
+	color: @button-color;
+	height: @button-height;
+    min-height: @button-height;
+	line-height: @button-height;
+	font-size: @button-font-size;
+}
+.button.button-sm.button-calm-custom{
+    font-size: @button-sm-font-size;
+    width: @button-sm-width;
+    height: @button-sm-height;
+    min-width: @button-sm-width;
+    line-height: @button-sm-height;
+    min-height: @button-sm-height;
+}
+.button.button-calm-custom.activated{
+    background: darken(@blue,@button-darken-percent);
+}
+
+/*outline按钮*/
+@button-outline-width: 160px * @scale;
+@button-outline-heihgt: round(56px * @scale);
+@button-outline-margin: 16px * @scale;
+@button-outline-font-size: round(@font-size-normal-sub * @scale);
+.button.button-outline-custom{
+    width: @button-outline-width;
+    height: @button-outline-heihgt;
+    min-height: @button-outline-heihgt;
+    line-height: @button-outline-heihgt;
+    margin: auto @button-outline-margin;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0 10px;
+    background: transparent;
+    border: 1px solid @border-grey;
+    border-radius: 3px;
+    font-size: @button-outline-font-size;
+    color: @important-grey;
+}
+.button.button-outline-custom.activated{
+    color: @orange;
+    border-color: @orange;
+}
+/*********************************************************** spacer 间隔 *******************************************/
+//控件间间隔
+@spacer-height: 22px * @scale;
+
+/*控件间垂直间隔*/
+.v-spacer{
+	height: @spacer-height;
+	width: 100%;
+	background: @background-grey; //考虑到很多情况下没设父级背景，固定颜色，可转换为transparent
+}
+
+/*********************************************************** list 列表 *******************************************/
+
+//列表相关
+@list-item-height: 100px * @scale;    //条目高度
+@list-item-padding: 24px * @scale;   //左右留白
+@list-text-size: @font-size-important-sub * @scale;   //文字大小
+@list-icon-size: 44px * @scale; //图标大小
+@list-text-margin: 30px * @scale;    //文字距离图标尺寸
+@list-desc-text-size: @font-size-normal * @scale; //列表描述信息文字大小
+
+.list{
+    margin-bottom: 0;
+}
+
+/*列表条目,可点击的条目*/
+.list .item.item-clickable{
+    position: relative;
+	height: @list-item-height;
+	line-height: @list-item-height; 
+    padding: 0; 
+	border-color: lighten(@border-grey, 5%);
+    border-width: 1px;
+	color:  @assistant-grey;
+}
+
+
+/*可点击列表的右侧信息,如：查看详情*/
+.item-clickable .icon-left{  //左侧图标
+    position: absolute;
+    left: @list-item-padding;
+	font-size: @list-icon-size; 
+    color: @assistant-grey;
+    margin: auto;
+    height: @list-item-height;
+    line-height: @list-item-height;
+}
+.item-clickable .text{  //文字
+    position: absolute;
+    left: @list-icon-size + @list-text-margin + @list-item-padding;
+    font-size: @list-text-size;
+    color: @important-grey;
+    height: @list-item-height;
+    line-height: @list-item-height;
+}
+
+.item-clickable .text-non-icon{  //文字
+    position: absolute;
+    left: @list-item-padding;
+    font-size: @list-text-size;
+    color: @important-grey;
+    height: @list-item-height;
+    line-height: @list-item-height;
+}
+
+.item-clickable .desc{ //描述信息
+    position: absolute;
+    right: @list-icon-size + @list-item-padding;
+    font-size: @list-desc-text-size;
+    color: @sub-grey;
+    height: @list-item-height;
+    line-height: @list-item-height;
+}
+
+.item-clickable .icon-right{ //右侧图标
+    position: absolute;
+    right: 0;
+	font-size: @list-icon-size;
+    width: @list-icon-size;
+    height: @list-item-height;
+	color: @assistant-grey;
+    height: @list-item-height;
+    line-height: @list-item-height;
+}
+//简单列表
+@item-single-height: 82px * @scale;
+.item-single{
+    position: relative;
+    height: @item-single-height;
+    line-height: @item-single-height;
+    border: 1px solid lighten(@border-grey, 5%);
+    padding: 0;
+}
+.item-single .v-center{
+    height: @item-single-height;
+    position: absolute;
+    top: 50%;
+    margin-top: -(@item-single-height / 2);
+}
+.item-single .v-center > .button{
+    top: -1px;
+}
+//弹性框，不限定高度
+.item-clickable.flexible,.item-single.flexible{
+    height: auto;
+    line-height: normal;
+}
+/*********************************************************** shortcut 快捷方式 *******************************************/
+
+@shortcut-normal-spacing: 24px * @scale;
+@shortcut-normal-font-size:  @font-size-normal-sub * @scale;
+@shortcut-small-spacing: 10px * @scale;
+@shortcut-small-font-size: @font-size-weak * @scale;
+@shortcut-icon-normal-size: 72px * @scale;
+@shortcut-icon-small-size: 54px * @scale;
+/*将上面是图标，下面是文字的控件称为shortcut，文字居中*/
+.shortcut{
+	width: 100%;
+}
+.shortcut p{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+    margin: 0;
+}
+
+/*表示状态，进行中，已完成*/
+.shortcut.shortcut-small p{
+    font-size: @shortcut-small-font-size;
+    padding-top: @shortcut-small-spacing;
+}
+
+/*作为可选项*/
+.shortcut.shortcut-normal p{
+    font-size: @shortcut-normal-font-size;
+    padding-top: @shortcut-normal-spacing;
+}
+
+.shortcut.shortcut-normal .iconfont:first-child{
+    height: @shortcut-icon-normal-size + 2px;
+    line-height: @shortcut-icon-normal-size + 2px;
+    font-size: @shortcut-icon-normal-size;
+}
+.shortcut.shortcut-small .iconfont:first-child{
+    height:  @shortcut-icon-small-size + 2px;
+    line-height: @shortcut-icon-small-size + 2px;
+    font-size: @shortcut-icon-small-size;
+}
+/*快捷方式图标大小*/
+.shortcut .icon{
+    text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+/*图标颜色变化*/
+.shortcut.activated .icon.orange{
+    color: @orange darken(@orange, 10%);
+}
+.shortcut.activated .icon.blue{
+    color: @blue darken(@blue, 10%);
+}
+.shortcut.activated .icon.green{
+    color: @green darken(@green, 10%);
+}
+
+
+/*********************************************************** 输入控件 *******************************************/
+@input-h-margin: 33px * @scale;
+@input-font-size: @font-size-important-sub * @scale;
+@input-font-color: @important-grey;
+@input-placeholder-color: @assistant-grey;
+@input-padding-bottom: 15px * @scale;
+.item.item-input.input-custom {
+    margin:auto @input-h-margin;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid @border-grey;
+    padding-bottom: @input-padding-bottom;
+    padding-bottom: 2px;
+}
+//获取焦点时蓝色，需要手动添加.focus
+.item.item-input.input-custom.focus{
+    border-bottom-color: @blue;
+}
+.input-custom input{
+    font-size: @input-font-size;
+    color: @input-font-color;
+}
+//placeholder的字体颜色和大小
+.input-custom input::-webkit-input-placeholder{
+    font-size: @input-font-size;
+    color: @input-placeholder-color;
+}
+.item-input.input-custom .delete{
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    color: @assistant-grey;
+}
+
+
+/*********************************************************** 头像 *******************************************/
+//头像
+@avatar-size: floor(130px * @scale);
+@avatar-border:  floor(10px * @scale);
+@avatar-padding:  floor(6px * @scale);
+@avatar-border-color: rgba(0, 0, 0, 0.2);
+@avatar-sm-size:  floor(100px * @scale);
+@avatar-sm-border: floor(3px * @scale);
+.avatar{
+    padding: 0;
+    width: @avatar-size;
+    height: @avatar-size;
+    border-radius: @avatar-size / 2;
+    border: @avatar-border solid @avatar-border-color;//#085E88; //@avatar-border-color微信浏览器透明边框导致img border-radius失效;
+    background: #fff;
+    background-clip: padding-box;   //只在padding以内绘制白色背景，有一个半透明的border
+}
+
+/*去除src为空时的边线*/
+.avatar img{        
+    display: none;
+}
+.avatar img[src]{
+    display:block;
+    margin-left: @avatar-padding;
+    margin-top: @avatar-padding;
+    width: @avatar-size - @avatar-padding * 2 - 2 * @avatar-border ; //图像大小为去除边界，去除留白的尺寸
+    height: @avatar-size - @avatar-padding * 2 - 2 * @avatar-border;
+    border-radius: 50%;         //头像圆形
+}
+.avatar.avatar-sm img{
+    margin-left: 1px;
+    margin-top: 1px;
+    width: @avatar-sm-size -  2px - @avatar-sm-border * 2;
+    height: @avatar-sm-size -  2px - @avatar-sm-border * 2;
+    border-radius: 50%;         //头像圆形
+}
+.avatar.avatar-sm{
+    width: @avatar-sm-size;
+    height: @avatar-sm-size;
+    border-color: rgba(0,0,0,0.25);
+    border-width: @avatar-sm-border;
+}
+
+/*********************************************************** 时间单元组件 *******************************************/
+@time-frame-height: 60px * @scale;
+@time-frame-border-color: @border-grey;
+.time-frame{
+    position: relative;
+    height: @time-frame-height;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid @time-frame-border-color;
+}
+.time-frame p{
+    margin:auto;
+    width: 100%;
+    height: @time-frame-height;
+    line-height: @time-frame-height;
+    text-align: center;
+    vertical-align: middle;
+}
+//红色斜三角，满
+.time-frame.busy .red-flag{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 23px solid @alert-red;
+    border-left: 23px solid transparent;
+}
+.time-frame.busy .text-tag{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #fff;
+    font-size: 8px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+//取消第一个时间段的右边框和最后一个时间段的左边框，这样中间边框不会显示为2像素
+.time-frame:first-child{
+    border-right: none;
+}
+.time-frame:last-child{
+    border-left: none;
+}
+.time-frame.selected{
+    border-color: @blue;
+    background: @blue;
+    color: #fff;
+}
+.time-frame.busy{
+    color: @disabled-grey;
+}
+/*********************************************弹出框*************************************/
+@popup-button-height: 70px * @scale;
+@popup-button-fontsize: 30px * @scale;
+@popup-icon-size: 55px * @scale;
+.popup-custom{
+   //可在此修改弹出框背景颜色
+}
+
+.popup-custom .popup-title .iconfont{
+    position: relative;
+    top: 3px; //图标和文字对齐
+    margin-right: 8px;
+    font-size: @popup-icon-size;
+}
+
+.popup-custom .popup-title{
+    font-size: @popup-button-fontsize;
+    color: @important-grey;
+    //height: @popup-icon-size;
+    line-height: @popup-icon-size;
+}
+.popup-custom .popup-title .multi-line{
+    margin-bottom: -15px;
+    margin-top: -5px;
+    line-height: 27px;
+    font-size: 27px * @scale;
+    text-align: left;
+}
+.popup-custom .popup{
+    width: 260px;
+}
+.popup-custom.popup-confirm .popup-title{
+    margin-top: 10px;
+}
+.popup-custom.popup-confirm .popup-body{
+    font-size: 27px * @scale;
+    color: @important-grey;
+}
+//$popup.show出的弹出框
+.popup-custom.popup-show .popup-title{
+    margin-bottom: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.popup-custom .popup-buttons .button.button-popup{
+    margin: auto 5px;
+    padding: 0 12px;
+    width: 85px;
+    height: @popup-button-height;
+    min-height: @popup-button-height;
+    line-height: @popup-button-height;
+    font-size: @popup-button-fontsize;
+}
+.popup-custom  .popup-buttons .button-popup.button-outline-custom{
+    border-color: @assistant-grey;
+    color: @sub-grey;
+}
+.popup-custom  .popup-buttons .button-popup.button-outline-custom.activated{
+    color: @orange;
+    border-color: @orange;
+}
+
+/*********************************************门店*************************************/
+
+@store-item-height: 210px * @scale;
+@store-item-padding-left: 22px * @scale;//左右留白
+@store-item-padding-top: 24px * @scale;//上下留白
+@store-pic-width:(@store-item-height) - (@store-item-padding-top * 2);//图片宽度
+@store-pic-heigh:(@store-item-height) - (@store-item-padding-top * 2);//图片高度
+@store-desc-left:@store-pic-width+@store-item-padding-left + 30px * @scale;//描述左边距离
+
+.list .item.store-info{
+    position: relative;
+    width: 100%;
+    height: @store-item-height;
+    border: none;
+
+}
+.list .item.store-info .store-pic{
+    position: absolute;
+    display: inline-block;
+    width: @store-pic-width;
+    height: @store-pic-heigh;
+    top: @store-item-padding-top;
+    left: @store-item-padding-left;
+    overflow: hidden;
+}
+.list .item.store-info .store-desc{
+    position: absolute;
+    display: inline-block;
+    width: 240px;
+    height: @store-pic-heigh;
+    left: @store-desc-left; 
+    top: @store-item-padding-top;
+}
+.list .item.store-info .store-desc .name{
+    font-size: 30px * @scale;
+    color: @important-grey;
+    vertical-align: middle;
+}
+.list .item.store-info .store-desc .address{
+    margin-top: -2px + 10px * @scale;
+    padding: 0;
+    font-size: 26px * @scale;
+    color: @sub-grey;
+    vertical-align: middle;
+    white-space: pre-wrap;
+}
+.list .item.store-info .store-desc .phone{
+    margin-top: -2px + 10px * @scale;
+    font-size: 26px * @scale;
+    color: @sub-grey;
+    vertical-align: middle;
+    white-space: pre-wrap;
+}
+/********************************************* 订单列表 *************************************/
+@order-item-heihgt: 340px * @scale;
+@order-title-font-size: @font-size-normal * @scale;
+@order-normal-font-size: @font-size-normal-sub * @scale;
+@order-padding-left: 24px * @scale;
+@order-content-height: 170 * @scale;
+@order-techlevelno-margin: 14px * @scale;
+@order-time-margin: 34px * @scale;
+@order-icon-size: 75px;
+.card.card-order{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.card-order .item-single{
+    margin-top: -1px;
+    padding-left: @order-padding-left;
+}
+
+/* 第二行内容 */
+.card-order .order-content{
+    padding: 24px * @scale;
+    font-size: @order-normal-font-size;
+}
+.card-order  .order-icon{
+    float:left;
+    width: @order-icon-size;
+    height: @order-icon-size;
+    line-height: @order-icon-size;
+    text-align: center;
+    font-size: 45px;
+    background: @background-grey;
+}
+.card-order .order-text{
+    position: relative;
+    float:left;
+    height: 100%;
+    width: calc(~"100% - 85px");
+    width: -webkit-calc(~"100% - 85px");
+    height: @order-icon-size;   //文字高度和图标一致
+    margin-left: 10px;
+}
+.order-text .techlevelno{
+    margin-top: @order-techlevelno-margin;
+    color: @assistant-grey;
+}
+.order-text .time{
+    position: absolute;
+    bottom: 0;
+    color: @assistant-grey;
+}
+.card-order .order-content .project-name{
+   color: @important-grey;
+}
+.order-content .project-name .price{
+    float: right;
+}
+.card-order .order-no{
+    color: @important-grey;
+    font-size: @order-title-font-size;
+}
+.card-order .button-group{
+    padding:0;
+}
+/*********************************************************** 客户信息 *******************************************/
+
+@custom-edit-font-size: 45px * @scale;
+@custom-right-paddding: 24px * @scale;
+@custom-top-padding: 36px * @scale;
+@custom-text-margin: 20px * @scale;
+.customer-info{
+    position: relative;
+    padding:  @custom-top-padding @custom-right-paddding;
+    border-bottom: solid 1px @border-grey;
+    background-size: 100%; /* 拉伸 */
+	background: -webkit-linear-gradient(left bottom,#0c669f,#01a6cc);
+	background: -moz-linear-gradient(left bottom,#0c669f,#01a6cc);
+}
+.customer-info .avatar{
+    float: left;
+}
+
+.customer-info  p{
+    padding: 0;
+    margin: 0;
+}
+//中间内容
+.customer-info .detail{
+    position: relative;
+    float: left;
+    height: @avatar-size;
+    padding-left: 30px * @scale;
+}
+.customer-info .name{
+    margin-top: @custom-text-margin;
+    color: #fff;
+    font-size: @font-size-important * @scale;
+}
+.customer-info .nickname{
+    color: #fff;
+    font-size: @font-size-important * @scale;
+    height: @avatar-size;
+    line-height: @avatar-size;
+}
+.customer-info .phone{
+    position: absolute;
+    bottom: @custom-text-margin;
+    color: #fff;
+    font-size: @font-size-normal * @scale;
+}
+
+//图标放在最右侧
+.customer-info .icon-right{
+    float:right;
+    font-size: @custom-edit-font-size;
+    text-align:center;
+    height: @avatar-size;
+    line-height: @avatar-size;
+    color: #fff;
+}
+
+//服务页面的客户信息
+@custom-service-text-margin: 6px;
+.customer-info.customer-service{
+    background:#fff;
+}
+.customer-info.customer-service .detail{
+    height: @avatar-sm-size;
+}
+.customer-info.customer-service .name{
+    margin-top: @custom-service-text-margin;
+    color: @important-grey;
+    font-size: @font-size-important-sub * @scale;
+}
+.customer-info.customer-service .nickname{
+    color: @important-grey;
+    font-size: @font-size-important-sub * @scale;
+    height: @avatar-sm-size;
+    line-height: @avatar-sm-size;
+}
+.customer-info.customer-service .phone{
+    position: absolute;
+    bottom: @custom-service-text-margin;
+    color: @sub-grey;
+    font-size: @font-size-normal * @scale;
+}
+.customer-info.customer-service .icon-right{
+    height: @avatar-sm-size;
+    line-height: @avatar-sm-size;
+    color: @assistant-grey;
+}
+
+/*********************************************************** 积分信息 *******************************************/
+@score-type-size: 120px * @scale;
+@score-heard-height: 90px * @scale;
+//标题栏
+.bar-score{
+    padding: 0;
+    height: @score-heard-height;
+    line-height: @score-heard-height;
+}
+.bar-score .buttons{
+    top: auto !important;
+    bottom: auto !important;
+}
+.bar-score .icon{
+    color: @assistant-grey;
+    height: @score-heard-height;
+    line-height: @score-heard-height;
+}
+.bar-score .title{
+    height: @score-heard-height;
+    line-height: @score-heard-height;
+    font-size: @font-size-important-sub * @scale;
+ }
+
+.bar-score .title-techlevelno{
+    color: @important-grey;
+}
+.bar-score .title-score{
+    color: @orange;
+}
+.scoreDetail-content{
+    top: @score-heard-height
+}
+//以下定义列表条目
+.item.score-item{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-color: @border-grey;
+}
+//积分类型
+.score-item .score-type{
+    float: left;
+    background: #42bced;
+    height: @score-type-size;
+    width: @score-type-size;
+    line-height: @score-type-size;
+    text-align: center;
+    font-size: @font-size-important * @scale;
+    color: #fff;
+}
+
+.score-item .content{
+    position: relative;
+    float: left;
+    height: @score-type-size;
+    width: 100%;
+}
+/*分为两行，上下对齐*/
+.score-item .content .first-row{
+    position: absolute;
+    top: 8px;
+    width: 98%;
+}
+.score-item .content .last-row{
+    position: absolute;
+    bottom: 8px;
+    width: 98%;
+}
+
+.score-item .desc{
+    font-size: @font-size-important-sub * @scale;
+    color: @important-grey;
+    float: left;
+    width: calc(~"100% - 150px");
+    width: -webkit-calc(~"100% - 150px");
+}
+.score-item .score-no, .score-item .time{
+    font-size: @font-size-normal-sub * @scale;
+    color: @sub-grey;
+}
+.score-item .time{
+    float: right;
+}
+.score-item .score{
+    float: right;
+    font-size: @font-size-important-sub * @scale;
+    color: @orange;
+}
+
+@import "custom-jw";

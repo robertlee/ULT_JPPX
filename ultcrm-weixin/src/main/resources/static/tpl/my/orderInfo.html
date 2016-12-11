@@ -1,0 +1,132 @@
+
+<ion-view view-title="预约详情" >
+	<ion-content class="aptmentDetail-content bg-blue">	
+		<style>
+			.aptment-detail-list{
+				position: relative;
+				margin: 10px;
+				margin-top: 48px;
+				padding-bottom: 8px;
+				border-radius: 5px;
+				background: #fff;
+			}
+			.aptment-detail-list .item.item-single{
+				height: auto;
+				line-height: 24px;
+				padding-top:10px;
+				padding-bottom:10px;
+				margin-left: 10px;
+				margin-right: 10px;
+				border-left: none;
+				border-right: none;
+			}
+			.aptment-detail-list .item-single:first-child{
+				padding-top: 38px;
+				height: 80px;
+			}
+			.aptment-detail-list .item-single:last-child{
+				border-bottom: none;
+			}
+			.aptment-detail-list .item-single .row{
+				margin: 0px;
+				padding: 0;
+				padding-left: 10px;
+				height: 100%;
+			}
+			.aptment-detail-list .item-single .row p{
+				padding: 0;
+				margin: 0;
+			}
+			.aptment-detail-list .aptment-desc p{
+				width: 100%;
+				text-align: center;
+				font-size: 22px;
+				color: #ff9d28;
+			}
+			/*91金牌培训店图标 */
+			.aptment-detail-list .91jppx-icon{
+				position: absolute;
+				top: -35px;
+				left: calc(50% - 35px);
+				left: -webkit-calc(50% - 35px);
+				width: 70px;
+				height: 70px;
+				z-index: 10;
+				border-radius: 50%;
+				background: url(/img/91jppx_store.png);
+				background-size: contain;
+				background-position: center;
+			}
+			
+			.aptment-detail-list .item-single .title{
+				min-width: 50px;
+				font-size: 16px;
+				color: #333;
+			}
+			.aptment-detail-list .item-single p.content{
+				padding-left: 15px;
+				white-space: pre-line;
+			}
+			.aptment-detail-list .item-single .used-desc{
+				padding-top: 5px;
+				height: 45px;
+				line-height: 45px;
+			}
+			.aptment-detail-list .item-single .used-desc p{
+				width: 100%;
+				text-align: center;
+				font-size: 22px;
+				color: #35b2e3;
+			}
+			
+		</style>
+		<div class="list aptment-detail-list">
+			<div class="item item-single flexible">
+				<div class="row aptment-desc"><p>培训详情</p></div>
+			</div>			
+			<div class="91jppx-icon"></div>
+			<div class="item item-single">				
+				<div class="row"><p class="title">编号:</p><p class="col content"> {{orderInfo.orderId}}</p></div>
+			</div>
+			<div class="item item-single">
+				<div class="row"><p class="title" >日期:</p>
+													<p class="col content" ng-if="orderInfo.startClassTime ==NULL">具体时间待定</p>
+				                                    <p class="col content" ng-if="orderInfo.startClassTime !=NULL">{{orderInfo.startClassTime|limitTo:10}}</p>
+				</div>
+			</div>			
+			<div class="item item-single">
+				<div class="row"><p class="title">时间:</p><p class="col content">{{orderInfo.classTimeDetail}}</p></div>
+			</div>
+			<div class="item item-single">				
+				<div class="row"><p class="title">教室:</p><p class="col content">{{orderInfo.roomAddress}}</p></div>
+			</div>		  
+			<div class="item item-single">
+				
+				<div class="row"><p class="title">座位:</p><p class="col content">{{orderInfo.seatname}}</p></div>
+			</div>
+		
+			<div class="item item-single">				
+				<div class="row"><p class="title">名称:</p><p class="col content">{{orderInfo.classname}} 课程{{orderInfo.classId}}</p></div>
+			</div>	
+
+   		
+			<div class="item item-single" >
+				<div class="row">
+					<p class="title" >学费:</p><p class="col content">{{orderInfo.price|currency:"￥"}}</p>
+				</div> 
+			</div>	
+			<div class="item item-single" >
+				<div class="row">
+					<p class="title" >学时:</p><p class="col content">{{orderInfo.classHour}} 小时</p>
+				</div> 
+			</div>				
+			<div class="item item-single" >
+				<div class="row">
+					<p class="title" >学员:</p><p class="col content">{{orderInfo.childName}}</p>
+				</div> 
+			</div>
+
+		</div>
+
+	</ion-content>
+</ion-view>

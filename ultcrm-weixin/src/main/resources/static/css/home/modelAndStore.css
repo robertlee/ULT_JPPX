@@ -1,0 +1,117 @@
+.title{
+	padding-top:50px;
+}
+
+.title span{
+	display:block;	
+	text-align:center; 	
+	margin:0 auto;
+	    
+}
+
+.btn-color{
+	background-color:#0998DC;
+	color:#ffffff;
+	border:1px solid #0998DC;
+}
+
+
+.right-btn{
+	float:right;
+}
+
+.confrim-btn{
+	
+	margin: 0px 30px;
+	margin-top:30px;
+}
+
+.card input {
+	margin-top:auto;
+	margin-bottom:auto;
+	display:block;
+	padding-top:0px; 
+	padding-bottom:0px;
+	border:1px solid #b2b2b2;
+	border-radius: 5px;
+	width: 100%;
+	background-color:#f2f2f2;
+}
+
+.card .titleItem{
+	line-height:50px;
+	display:line-box;
+	height: 50px;
+	
+	overflow: hidden;
+}
+
+.titleItem span{
+	line-height:32px;
+	display:block; 
+	float:left;
+	padding-left:5px;
+	height:32px;
+}
+.titleItem img{
+	float:left;
+
+}
+
+.card .col{
+  height:35px;
+  line-height:35px;
+}
+
+.card .row {
+	margin-bottom:15px;
+}
+
+.padding-left-top-0{
+	padding-left:0px;
+	padding-top:0px;
+}
+
+.active-color-model{
+	color:#0998DC;
+}
+
+.border-box{
+	border:1px solid #cdccd1;
+	border-radius: 5px;
+	background-color:#f2f2f2;
+	padding-left:10px;
+}
+
+.courseImg{
+	height:25px;
+	
+}
+
+.model-and-store {
+	font-size:16px;
+}
+
+.plateNoInput {
+	border:1px solid #cdccd1 !important;
+	border-radius: 5px !important;
+	background-color:#FFFFFF !important;
+	padding-left:10px !important;
+}
+
+.plateAreaCodeSelect {
+	background-color:#FFFFFF;
+	height: 33px; 
+	width:25%; 
+	padding-left:10px;
+	border-radius: 5px;
+}
+
+.techSelectInput {
+	height: 30px; 
+	width:100%; 
+	padding-left:10px; 
+	border-radius: 5px;
+}
+
+

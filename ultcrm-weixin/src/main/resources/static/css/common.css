@@ -1,0 +1,1052 @@
+/*
+灰色： 
+1. 重度灰 -- important-grey #333333 重要信息
+2. 中度灰 -- sub-grey #666666  次要信息
+3. 轻度灰 -- assistant-grey #999999 辅助信息
+3. icon灰 -- disabled-grey #a8a8a8 不可用状态
+4. 分割线灰 -- border-grey #e0e0e0 边框，分割线
+5. 背景灰 -- background-grey #f3f3f4 背景灰
+6. 橙色 -- orange #ff9d28
+7. 蓝色 -- blue #35b2e3
+ */
+/*字体图标*/
+@font-face {
+  font-family: "iconfont";
+  src: url('/fonts/iconfont.eot');
+  /* IE9*/
+  src: url('/fonts/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('/fonts/iconfont.woff') format('woff'), /* chrome、firefox */ url('/fonts/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('/fonts/iconfont.svg#iconfont') format('svg');
+  /* iOS 4.1- */
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-maintain:before {
+  content: "\e600";
+}
+.icon-pending:before {
+  content: "\e602";
+}
+.icon-comment:before {
+  content: "\e603";
+}
+.icon-order-off:before {
+  content: "\e604";
+}
+.icon-locate:before {
+  content: "\e605";
+}
+.icon-service-off:before {
+  content: "\e606";
+}
+.icon-activity-off:before {
+  content: "\e607";
+}
+.icon-working:before {
+  content: "\e609";
+}
+.icon-painting:before {
+  content: "\e60a";
+}
+.icon-other:before {
+  content: "\e60b";
+}
+.icon-repair:before {
+  content: "\e60c";
+}
+.icon-mytech:before {
+  content: "\e60e";
+}
+.icon-washing:before {
+  content: "\e611";
+}
+.icon-selectservice:before {
+  content: "\e612";
+}
+.icon-selectstore:before {
+  content: "\e613";
+}
+.icon-done:before {
+  content: "\e614";
+}
+.icon-appointmentok:before {
+  content: "\e615";
+}
+.icon-avatar:before {
+  content: "\e616";
+}
+.icon-edit:before {
+  content: "\e601";
+}
+.icon-garage:before {
+  content: "\e617";
+}
+.icon-select:before {
+  content: "\e618";
+}
+.icon-radio-on:before {
+  content: "\e61b";
+}
+.icon-radio-off:before {
+  content: "\e61c";
+}
+.icon-my-off:before {
+  content: "\e619";
+}
+.icon-my-on:before {
+  content: "\e61a";
+}
+.icon-order-on:before {
+  content: "\e61d";
+}
+.icon-service-on:before {
+  content: "\e61e";
+}
+.icon-activity-on:before {
+  content: "\e61f";
+}
+.icon-mytech:before {
+  content: "\e608";
+}
+.icon-myorder:before {
+  content: "\e60d";
+}
+.icon-myscore:before {
+  content: "\e60f";
+}
+.icon-mycards:before {
+  content: "\e610";
+}
+.icon-comment-star:before {
+  content: "\e620";
+}
+.icon-vertify-code:before {
+  content: "\e621";
+}
+.icon-phone:before {
+  content: "\e622";
+}
+.icon-confirm:before {
+  content: "\e623";
+}
+.icon-prompt:before {
+  content: "\e624";
+}
+.icon-alert:before {
+  content: "\e625";
+}
+/*********************************************************** 通用抽象 *******************************************/
+/*内部留白*/
+.padding.padding-normal {
+  padding: 15px;
+}
+/*********************************************************** 颜色 *******************************************/
+.important-grey {
+  color: #333333 !important;
+}
+.sub-grey {
+  color: #666666 !important;
+}
+.assistant-grey {
+  color: #999999 !important;
+}
+.disabled-grey {
+  color: #a8a8a8 !important;
+}
+.border-grey {
+  color: #e0e0e0 !important;
+}
+.background-grey {
+  color: #f3f3f4 !important;
+}
+.orange {
+  color: #ff9d28 !important;
+}
+.yellow {
+  color: #fd9f19 !important;
+}
+.blue {
+  color: #35b2e3 !important;
+}
+.green {
+  color: #35ba8a !important;
+}
+.alert-red {
+  color: #ff5259 !important;
+}
+.bg-important-grey {
+  background-color: #333333 !important;
+}
+.bg-sub-grey {
+  background-color: #666666 !important;
+}
+.bg-assistant-grey {
+  background-color: #999999 !important;
+}
+.bg-disabled-grey {
+  background-color: #a8a8a8 !important;
+}
+.bg-border-grey {
+  background-color: #e0e0e0 !important;
+}
+.bg-background-grey {
+  background-color: #f3f3f4 !important;
+}
+.bg-orange {
+  background-color: #ff9d28 !important;
+}
+.bg-blue {
+  background-color: #35b2e3 !important;
+}
+.bg-alert-red {
+  background-color: #ff5259 !important;
+}
+/*********************************************************** icons 图标 *******************************************/
+/*自定义图标*/
+.icon-custom {
+  background: url(/img/icons.png);
+  background-size: 231px 275px;
+  background-repeat: no-repeat;
+  width: 0;
+  height: 0;
+}
+.icon-custom.icon-audi {
+  width: 57.75px;
+  height: 19.25px;
+  background-position: 0 0;
+}
+.icon-custom.icon-porsche {
+  width: 31.9px;
+  height: 41.8px;
+  background-position: -57.75px 0;
+}
+.icon-custom.icon-bmw {
+  width: 42.35px;
+  height: 41.8px;
+  background-position: -115.5px 0;
+}
+.icon-custom.icon-benz {
+  width: 42.35px;
+  height: 41.8px;
+  background-position: -173.25px 0;
+}
+.icon-custom.icon-land-rover {
+  width: 56.65px;
+  height: 30.25px;
+  background-position: 0 -57.75px;
+}
+.icon-custom.icon-vw {
+  width: 42.35px;
+  height: 41.8px;
+  background-position: -57.75px -57.75px;
+}
+.icon-custom.icon-audi-sm {
+  width: 37.5375px;
+  height: 14.5125px;
+  background-size: 150.15px 178.75px;
+  background-position: 0 0;
+}
+.icon-custom.icon-porsche-sm {
+  width: 20.735px;
+  height: 27.17px;
+  background-size: 150.15px 178.75px;
+  background-position: -37.5375px 0;
+}
+.icon-custom.icon-bmw-sm {
+  width: 27.5275px;
+  height: 27.17px;
+  background-size: 150.15px 178.75px;
+  background-position: -75.075px 0;
+}
+.icon-custom.icon-benz-sm {
+  width: 27.5275px;
+  height: 27.17px;
+  background-size: 150.15px 178.75px;
+  background-position: -112.6125px 0;
+}
+.icon-custom.icon-land-rover-sm {
+  width: 36.8225px;
+  height: 20.2325px;
+  background-size: 150.15px 178.75px;
+  background-position: 0 -37.5375px;
+}
+.icon-custom.icon-vw-sm {
+  width: 27.5275px;
+  height: 27.17px;
+  background-size: 150.15px 178.75px;
+  background-position: -37.5375px -37.5375px;
+}
+/*********************************************************** button 按钮 *******************************************/
+/*按钮固定底部*/
+.fix-bottom {
+  position: relative;
+  bottom: -10px;
+}
+/*提交按钮*/
+.button.button-submit {
+  background: #ff9d28;
+  border-radius: 3px;
+  border: none;
+  width: 100%;
+  color: #fff;
+  height: 44px;
+  min-height: 44px;
+  line-height: 44px;
+  font-size: 19.8px;
+}
+/*背景色加深*/
+.button-submit.activated {
+  background: #f48500;
+}
+/*取消按钮*/
+.button.button-cancel {
+  background: #a8a8a8;
+  border-radius: 3px;
+  border: none;
+  width: 100%;
+  color: #fff;
+  min-height: 44px;
+  height: 44px;
+  line-height: 44px;
+  font-size: 19.8px;
+}
+.button-cancel.activated {
+  background: #8f8f8f;
+}
+/*不可点击按钮*/
+.button.button-disabled {
+  background: #999999;
+  border-radius: 3px;
+  border: none;
+  width: 100%;
+  color: #fff;
+  min-height: 44px;
+  height: 44px;
+  line-height: 44px;
+  font-size: 19.8px;
+  pointer-events: none;
+}
+/*自定义,蓝色按钮*/
+.button.button-calm-custom {
+  background: #35b2e3;
+  border-radius: 3px;
+  border: none;
+  width: 100%;
+  color: #fff;
+  height: 44px;
+  min-height: 44px;
+  line-height: 44px;
+  font-size: 19.8px;
+}
+.button.button-sm.button-calm-custom {
+  font-size: 16.5px;
+  width: 115.5px;
+  height: 35.75px;
+  min-width: 115.5px;
+  line-height: 35.75px;
+  min-height: 35.75px;
+}
+.button.button-calm-custom.activated {
+  background: #1c98c9;
+}
+/*outline按钮*/
+.button.button-outline-custom {
+  width: 88px;
+  height: 31px;
+  min-height: 31px;
+  line-height: 31px;
+  margin: auto 8.8px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0 10px;
+  background: transparent;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #333333;
+}
+.button.button-outline-custom.activated {
+  color: #ff9d28;
+  border-color: #ff9d28;
+}
+/*********************************************************** spacer 间隔 *******************************************/
+/*控件间垂直间隔*/
+.v-spacer {
+  height: 12.1px;
+  width: 100%;
+  background: #f3f3f4;
+}
+/*********************************************************** list 列表 *******************************************/
+.list {
+  margin-bottom: 0;
+}
+/*列表条目,可点击的条目*/
+.list .item.item-clickable {
+  position: relative;
+  height: 55px;
+  line-height: 55px;
+  padding: 0;
+  border-color: #ededed;
+  border-width: 1px;
+  color: #999999;
+}
+/*可点击列表的右侧信息,如：查看详情*/
+.item-clickable .icon-left {
+  position: absolute;
+  left: 13.2px;
+  font-size: 24.2px;
+  color: #999999;
+  margin: auto;
+  height: 55px;
+  line-height: 55px;
+}
+.item-clickable .text {
+  position: absolute;
+  left: 53.9px;
+  font-size: 16.5px;
+  color: #333333;
+  height: 55px;
+  line-height: 55px;
+}
+.item-clickable .text-non-icon {
+  position: absolute;
+  left: 13.2px;
+  font-size: 16.5px;
+  color: #333333;
+  height: 55px;
+  line-height: 55px;
+}
+.item-clickable .desc {
+  position: absolute;
+  right: 37.4px;
+  font-size: 15.4px;
+  color: #666666;
+  height: 55px;
+  line-height: 55px;
+}
+.item-clickable .icon-right {
+  position: absolute;
+  right: 0;
+  font-size: 24.2px;
+  width: 24.2px;
+  color: #999999;
+  height: 55px;
+  line-height: 55px;
+}
+.item-single {
+  position: relative;
+  height: 45.1px;
+  line-height: 45.1px;
+  border: 1px solid #ededed;
+  padding: 0;
+}
+.item-single .v-center {
+  height: 45.1px;
+  position: absolute;
+  top: 50%;
+  margin-top: -22.55px;
+}
+.item-single .v-center > .button {
+  top: -1px;
+}
+.item-clickable.flexible,
+.item-single.flexible {
+  height: auto;
+  line-height: normal;
+}
+/*********************************************************** shortcut 快捷方式 *******************************************/
+/*将上面是图标，下面是文字的控件称为shortcut，文字居中*/
+.shortcut {
+  width: 100%;
+}
+.shortcut p {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin: 0;
+}
+/*表示状态，进行中，已完成*/
+.shortcut.shortcut-small p {
+  font-size: 12.1px;
+  padding-top: 5.5px;
+}
+/*作为可选项*/
+.shortcut.shortcut-normal p {
+  font-size: 14.3px;
+  padding-top: 13.2px;
+}
+.shortcut.shortcut-normal .iconfont:first-child {
+  height: 41.6px;
+  line-height: 41.6px;
+  font-size: 39.6px;
+}
+.shortcut.shortcut-small .iconfont:first-child {
+  height: 31.7px;
+  line-height: 31.7px;
+  font-size: 29.7px;
+}
+/*快捷方式图标大小*/
+.shortcut .icon {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*图标颜色变化*/
+.shortcut.activated .icon.orange {
+  color: #ff9d28 #f48500;
+}
+.shortcut.activated .icon.blue {
+  color: #35b2e3 #1c98c9;
+}
+.shortcut.activated .icon.green {
+  color: #35ba8a #2a926d;
+}
+/*********************************************************** 输入控件 *******************************************/
+.item.item-input.input-custom {
+  margin: auto 18.15px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 8.25px;
+  padding-bottom: 2px;
+}
+.item.item-input.input-custom.focus {
+  border-bottom-color: #35b2e3;
+}
+.input-custom input {
+  font-size: 16.5px;
+  color: #333333;
+}
+.input-custom input::-webkit-input-placeholder {
+  font-size: 16.5px;
+  color: #999999;
+}
+.item-input.input-custom .delete {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: #999999;
+}
+/*********************************************************** 头像 *******************************************/
+.avatar {
+  padding: 0;
+  width: 71px;
+  height: 71px;
+  border-radius: 35.5px;
+  border: 5px solid rgba(0, 0, 0, 0.2);
+  background: #fff;
+  background-clip: padding-box;
+}
+/*去除src为空时的边线*/
+.avatar img {
+  display: none;
+}
+.avatar img[src] {
+  display: block;
+  margin-left: 3px;
+  margin-top: 3px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+}
+.avatar.avatar-sm img {
+  margin-left: 1px;
+  margin-top: 1px;
+  width: 51px;
+  height: 51px;
+  border-radius: 50%;
+}
+.avatar.avatar-sm {
+  width: 55px;
+  height: 55px;
+  border-color: rgba(0, 0, 0, 0.25);
+  border-width: 1px;
+}
+/*********************************************************** 时间单元组件 *******************************************/
+.time-frame {
+  position: relative;
+  height: 33px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+.time-frame p {
+  margin: auto;
+  width: 100%;
+  height: 33px;
+  line-height: 33px;
+  text-align: center;
+  vertical-align: middle;
+}
+.time-frame.busy .red-flag {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 23px solid #ff5259;
+  border-left: 23px solid transparent;
+}
+.time-frame.busy .text-tag {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #fff;
+  font-size: 8px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.time-frame:first-child {
+  border-right: none;
+}
+.time-frame:last-child {
+  border-left: none;
+}
+.time-frame.selected {
+  border-color: #35b2e3;
+  background: #35b2e3;
+  color: #fff;
+}
+.time-frame.busy {
+  color: #a8a8a8;
+}
+/*********************************************弹出框*************************************/
+.popup-custom .popup-title .iconfont {
+  position: relative;
+  top: 3px;
+  margin-right: 8px;
+  font-size: 30.25px;
+}
+.popup-custom .popup-title {
+  font-size: 16.5px;
+  color: #333333;
+  line-height: 30.25px;
+}
+.popup-custom .popup-title .multi-line {
+  margin-bottom: -15px;
+  margin-top: -5px;
+  line-height: 27px;
+  font-size: 14.85px;
+  text-align: left;
+}
+.popup-custom .popup {
+  width: 260px;
+}
+.popup-custom.popup-confirm .popup-title {
+  margin-top: 10px;
+}
+.popup-custom.popup-confirm .popup-body {
+  font-size: 14.85px;
+  color: #333333;
+}
+.popup-custom.popup-show .popup-title {
+  margin-bottom: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.popup-custom .popup-buttons .button.button-popup {
+  margin: auto 5px;
+  padding: 0 12px;
+  width: 85px;
+  height: 38.5px;
+  min-height: 38.5px;
+  line-height: 38.5px;
+  font-size: 16.5px;
+}
+.popup-custom .popup-buttons .button-popup.button-outline-custom {
+  border-color: #999999;
+  color: #666666;
+}
+.popup-custom .popup-buttons .button-popup.button-outline-custom.activated {
+  color: #ff9d28;
+  border-color: #ff9d28;
+}
+/*********************************************门店*************************************/
+.list .item.store-info {
+  position: relative;
+  width: 100%;
+  height: 115.5px;
+  border: none;
+}
+.list .item.store-info .store-pic {
+  position: absolute;
+  display: inline-block;
+  width: 89.1px;
+  height: 89.1px;
+  top: 13.2px;
+  left: 12.1px;
+  overflow: hidden;
+}
+.list .item.store-info .store-desc {
+  position: absolute;
+  display: inline-block;
+  width: 240px;
+  height: 89.1px;
+  left: 117.7px;
+  top: 13.2px;
+}
+.list .item.store-info .store-desc .name {
+  font-size: 16.5px;
+  color: #333333;
+  vertical-align: middle;
+}
+.list .item.store-info .store-desc .address {
+  margin-top: 3.5px;
+  padding: 0;
+  font-size: 14.3px;
+  color: #666666;
+  vertical-align: middle;
+  white-space: pre-wrap;
+}
+.list .item.store-info .store-desc .phone {
+  margin-top: 3.5px;
+  font-size: 14.3px;
+  color: #666666;
+  vertical-align: middle;
+  white-space: pre-wrap;
+}
+/********************************************* 订单列表 *************************************/
+.card.card-order {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.card-order .item-single {
+  margin-top: -1px;
+  padding-left: 13.2px;
+}
+/* 第二行内容 */
+.card-order .order-content {
+  padding: 13.2px;
+  font-size: 14.3px;
+}
+.card-order .order-icon {
+  float: left;
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+  text-align: center;
+  font-size: 45px;
+  background: #f3f3f4;
+}
+.card-order .order-text {
+  position: relative;
+  float: left;
+  height: 100%;
+  width: calc(100% - 85px);
+  width: -webkit-calc(100% - 85px);
+  height: 75px;
+  margin-left: 10px;
+}
+.order-text .techlevelno {
+  margin-top: 7.7px;
+  color: #999999;
+}
+.order-text .time {
+  position: absolute;
+  bottom: 0;
+  color: #999999;
+}
+.card-order .order-content .project-name {
+  color: #333333;
+}
+.order-content .project-name .price {
+  float: right;
+}
+.card-order .order-no {
+  color: #333333;
+  font-size: 15.4px;
+}
+.card-order .button-group {
+  padding: 0;
+}
+/*********************************************************** 客户信息 *******************************************/
+.customer-info {
+  position: relative;
+  padding: 19.8px 13.2px;
+  border-bottom: solid 1px #e0e0e0;
+  background-size: 100%;
+  /* 拉伸 */
+  background: -webkit-linear-gradient(left bottom, #0c669f, #01a6cc);
+  background: -moz-linear-gradient(left bottom, #0c669f, #01a6cc);
+}
+.customer-info .avatar {
+  float: left;
+}
+.customer-info p {
+  padding: 0;
+  margin: 0;
+}
+.customer-info .detail {
+  position: relative;
+  float: left;
+  height: 71px;
+  padding-left: 16.5px;
+}
+.customer-info .name {
+  margin-top: 11px;
+  color: #fff;
+  font-size: 19.8px;
+}
+.customer-info .nickname {
+  color: #fff;
+  font-size: 19.8px;
+  height: 71px;
+  line-height: 71px;
+}
+.customer-info .phone {
+  position: absolute;
+  bottom: 11px;
+  color: #fff;
+  font-size: 15.4px;
+}
+.customer-info .icon-right {
+  float: right;
+  font-size: 24.75px;
+  text-align: center;
+  height: 71px;
+  line-height: 71px;
+  color: #fff;
+}
+.customer-info.customer-service {
+  background: #fff;
+}
+.customer-info.customer-service .detail {
+  height: 55px;
+}
+.customer-info.customer-service .name {
+  margin-top: 6px;
+  color: #333333;
+  font-size: 16.5px;
+}
+.customer-info.customer-service .nickname {
+  color: #333333;
+  font-size: 16.5px;
+  height: 55px;
+  line-height: 55px;
+}
+.customer-info.customer-service .phone {
+  position: absolute;
+  bottom: 6px;
+  color: #666666;
+  font-size: 15.4px;
+}
+.customer-info.customer-service .icon-right {
+  height: 55px;
+  line-height: 55px;
+  color: #999999;
+}
+/*********************************************************** 积分信息 *******************************************/
+.bar-score {
+  padding: 0;
+  height: 49.5px;
+  line-height: 49.5px;
+}
+.bar-score .buttons {
+  top: auto !important;
+  bottom: auto !important;
+}
+.bar-score .icon {
+  color: #999999;
+  height: 49.5px;
+  line-height: 49.5px;
+}
+.bar-score .title {
+  height: 49.5px;
+  line-height: 49.5px;
+  font-size: 16.5px;
+}
+.bar-score .title-techlevelno {
+  color: #333333;
+}
+.bar-score .title-score {
+  color: #ff9d28;
+}
+.scoreDetail-content {
+  top: 49.5px;
+}
+.item.score-item {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-color: #e0e0e0;
+}
+.score-item .score-type {
+  float: left;
+  background: #42bced;
+  height: 66px;
+  width: 66px;
+  line-height: 66px;
+  text-align: center;
+  font-size: 19.8px;
+  color: #fff;
+}
+.score-item .content {
+  position: relative;
+  float: left;
+  height: 66px;
+  width: 100%;
+}
+/*分为两行，上下对齐*/
+.score-item .content .first-row {
+  position: absolute;
+  top: 8px;
+  width: 98%;
+}
+.score-item .content .last-row {
+  position: absolute;
+  bottom: 8px;
+  width: 98%;
+}
+.score-item .desc {
+  font-size: 16.5px;
+  color: #333333;
+  float: left;
+  width: calc(100% - 150px);
+  width: -webkit-calc(100% - 150px);
+}
+.score-item .score-no,
+.score-item .time {
+  font-size: 14.3px;
+  color: #666666;
+}
+.score-item .time {
+  float: right;
+}
+.score-item .score {
+  float: right;
+  font-size: 16.5px;
+  color: #ff9d28;
+}
+/*********************************************门店*************************************/
+.list .item.store-info {
+  position: relative;
+  width: 100%;
+  height: 115.5px;
+  border: none;
+}
+.list .item.store-info .store-pic {
+  position: absolute;
+  display: inline-block;
+  width: 89.1px;
+  height: 89.1px;
+  top: 13.2px;
+  left: 12.1px;
+  overflow: hidden;
+}
+.list .item.store-info .store-desc {
+  position: absolute;
+  display: inline-block;
+  width: 240px;
+  height: 89.1px;
+  left: 117.7px;
+  top: 13.2px;
+}
+.list .item.store-info .store-desc .name {
+  font-size: 16.5px;
+  color: #333333;
+  vertical-align: middle;
+}
+.list .item.store-info .store-desc .address {
+  margin-top: 3.5px;
+  padding: 0;
+  font-size: 14.3px;
+  color: #666666;
+  vertical-align: middle;
+  white-space: pre-wrap;
+}
+.list .item.store-info .store-desc .phone {
+  margin-top: 3.5px;
+  font-size: 14.3px;
+  color: #666666;
+  vertical-align: middle;
+  white-space: pre-wrap;
+}
+/*********************************************************** 个人信息 *******************************************/
+.profile-info {
+  position: relative;
+  height: 91.85px;
+  border-bottom: solid 1px #e0e0e0;
+  padding: 0;
+}
+.profile-info .avatar {
+  position: absolute;
+  top: 18.425px;
+  right: 15.4px;
+  margin: auto 0;
+}
+.profile-info .detail {
+  position: absolute;
+  left: 13.2px;
+  font-size: 16.5px;
+  color: #333333;
+  line-height: 91.85px;
+}
+/***************************************************radio选择********************************************************/
+.list .item.custom-item-radio {
+  position: relative;
+  margin: 8px 18.15px 0 18.15px;
+  border-bottom: solid 1px #e0e0e0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.list .item.custom-item-radio input {
+  /* hide any radio button inputs elements (the ugly circles) */
+  position: absolute;
+  left: -9999px;
+}
+.list .item.custom-item-radio .radio-text {
+  position: relative;
+  left: -3.85px;
+  color: #333333;
+  font-size: 16.5px;
+  height: 18px;
+  line-height: 18px;
+  bottom: -7px;
+}
+.list .item.custom-item-radio .custom-radio-icon {
+  position: absolute;
+  font-size: 16.5px;
+  right: 6.6px;
+  bottom: 10.45px;
+}
+/*******************************************************卡券列表***************************************************/
+.cardList-content .state-title {
+  position: relative;
+  margin-top: 0;
+  width: 100%;
+  height: 47.3px;
+  background-color: white;
+  border-bottom: solid 1px #e0e0e0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.cardList-content .state-title .state-item.state-inactive {
+  font-size: 15.4px;
+  margin: -10px 20px 0 20px;
+  text-align: center;
+  line-height: 43.3px;
+  color: #666666;
+  border-bottom: solid 2px transparent;
+  border-top: solid 2px transparent;
+  border-right: none;
+  border-left: none;
+}
+.cardList-content .state-title .state-item.state-active {
+  font-size: 15.4px;
+  margin: -10px 20px 0 20px;
+  text-align: center;
+  line-height: 43.3px;
+  color: #2fb0e3;
+  border-bottom: solid 2px #35b2e3;
+  border-top: solid 2px transparent;
+  border-right: none;
+  border-left: none;
+}

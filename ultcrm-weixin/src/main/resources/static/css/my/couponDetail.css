@@ -1,0 +1,96 @@
+/*清除浮动*/
+.clearfix{
+	clear: both;
+	height: 0;
+	overflow: hidden;
+}
+
+/*修改bar-header大小*/
+.couponDetail-content .bar-header{
+	height: 34px;
+	background-color: #37484F;
+		
+}
+.couponDetail-content .bar-header .title{
+	height: 33px;
+	line-height: 34px;
+}
+
+/*优惠券描述上下留白,宽度固定 250（内容） + 34（标题栏）*/
+.coupon{
+	position: relative;
+
+	margin-top: 15px;
+	margin-bottom: 30px;
+	
+	height: 284px;
+	
+}
+
+/*使用说明,固定高度34*/
+.coupon-title{
+	position: relative;
+	height: 34px;
+	background: #099ADD;
+	text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*使用说明文本*/
+.coupon .coupon-title h3{
+	position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+    height: 33px;
+    color:#fff;
+    line-height: 34px;
+   	font-size: 20px;
+}
+
+/*优惠券详情内容，固定高度250,居中，左右两侧各放一个三角形*/
+.coupon .coupon-content{
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	height: 250px;
+	
+	padding:30px 20px;
+	border-width: 0 5px 5px 5px;
+	border-style: solid;
+	border-color: #099ADD;
+}
+
+/*左侧三角形*/
+.coupon .border-mask-left{
+	position: absolute;
+	left:0;
+	width: 10px;
+	height: 0;
+	border-top: 20px solid #099ADD;
+	border-left: 10px solid transparent;
+}
+
+/*左侧三角形*/
+.coupon .border-mask-right{
+	position: absolute;
+	right: 0;
+	width: 10px;
+	height: 0;
+	border-top: 20px solid #099ADD;
+	border-right: 10px solid transparent;
+}
+
+
+/*返回按钮*/
+.return-button{
+	height: 50px;
+	background: #099ADD;
+	color: #fff;
+	margin: 0 20px 20px 20px;
+}
+.button.return-button.activated{
+	background: #098bca;
+}

@@ -1,0 +1,95 @@
+<ion-view view-title="快乐语文●培训状态列表" >
+	<ion-content class="orderList-content bg-background-grey">	
+	  <style type="text/css">
+			.order-list-category{
+				background: #fff;
+				border: none;
+				padding: 0;
+			}
+			.order-list-category div.col{
+				padding:0px;
+				text-align:center;
+				font-size: 16px;
+				height: 45px;
+				line-height: 45px;
+			}
+			/*激活状态 */
+			.order-list-category div.col.blue{
+				border-bottom: 2px solid #35b2e3;
+			}
+			.order-list-category div.col.activated{
+				color:#35b2e3;
+			}
+		</style>
+        <div class="row order-list-category sub-grey">
+			<div class="col " ng-class="newActive ? 'blue ' : 'sub-grey'" ng-click="viewNew();">
+				待培训({{newCount}})
+			</div>
+			<div class="col " ng-class="workingActive? 'blue' : 'sub-grey'" ng-click="viewWorking();">
+				培训中({{workingCount}})
+			</div>
+			<div class="col " ng-class="completeActive? 'blue' : 'sub-grey'" ng-click="viewComplete();">
+				已结束({{completeCount}})
+			</div>
+			<div class="col " ng-class="commentActive? 'blue' : 'sub-grey'" ng-click="viewComment();">
+				待评价({{commentCount}})
+			</div>
+        </div>	
+  		
+  		<div ng-repeat="order in orderList">
+  			<div class="v-spacer"></div>
+  			<!-- 样式见common.less -->
+			<div class="card card-order">
+				<div class="item item-divider" style="background-color:#33444c;color: white;" ng-show="order.shouldShowDivider && order.shouldShowDivider">
+		   			 	{{order.createTime}}{{order.createTime | date:'yyyy年MM月'}}
+		  		</div>
+				<div class="item-single order-no" >单号:{{order.createTime |date:'yyyyMM'}}00{{order.id?order.id:'中心订单'}}</div>
+				<div class="item-single flexible order-content clearfix">
+				
+					<!-- 根据不同项目替换icon-washing blue -->
+					<div class="order-icon iconfont {{businessTypeMap[order.busiTypeId] ? businessTypeMap[order.busiTypeId].iconClass : businessTypeMap['other'].iconClass}}"
+						 style="color:{{businessTypeMap[order.busiTypeId] ? businessTypeMap[order.busiTypeId].iconColor : businessTypeMap['other'].iconColor}}">
+					</div>
+					<div class="order-text">						
+						<div class="techlevelno">课程名称:{{order.classname}}</div>						
+						<div class="techlevelno">座位信息:{{order.seatname}}  费用:{{order.price| currency:"￥"}}</div>						
+						<div class="time" ng-if="newActive">开课时间:{{order.classTimeDetail}}</div>
+	        			<div class="time" ng-if="workingActive">结课时间:{{order.sapPlanFinishedtimeStr||formatTime(order.sapPlanFinishedtime)}}</div>
+	        			<div class="time" ng-if="completeActive">结课时间:{{order.sapPlanFinishedtimeStr||formatTime(order.sapPlanFinishedtime)}}</div>	
+	        			<div class="time" ng-if="commentActive">结课时间:{{order.sapPlanFinishedtimeStr||formatTime(order.sapPlanFinishedtime)}}</div>	
+					</div>
+				</div>
+				
+				<div class="item-single flexible button-group" ng-if="newActive" > 
+		        	<div class="row">
+		        		<div class="col"></div>
+						<button class="button button-outline-custom"  ng-click="viewNewOrder(order)">查看详情</button>
+		        	</div>
+			  	</div>
+				<div class="item-single flexible button-group" ng-if="workingActive" >
+		        	<div class="row">
+		        		<div class="col"></div>
+						<button class="button button-outline-custom" ng-click="viewWorkingOrder(order)">查看详情</button>
+		        	</div>
+			  	</div>
+			  	<div class="item-single flexible button-group" ng-if="completeActive" >
+		        	<div class="row">
+		        		<div class="col"></div>
+		    	 		<button class="button button-outline-custom" ng-if="order.status!=4 && order.status!=5" ng-click="viewCompleteOrder(order)">查看详情</button>
+						<button class="button button-outline-custom" ng-if="order.status!=4 && order.status!=5" ng-click="commentOrder(order)">{{order.hasComment?"已评价":"去评价"}}</button>
+						<button class="button button-outline-custom" ng-if="order.status==4" disabled style="border:none;">已取消</button>
+						<button class="button button-outline-custom" ng-if="order.status==5" disabled style="border:none;">已过期</button>
+		        	</div>
+			  	</div>
+			  	<div class="item-single flexible button-group" ng-if="commentActive" >
+		        	<div class="row">
+		        		<div class="col"></div>
+		    	 		<button class="button button-outline-custom" ng-click="viewCompleteOrder(order)">查看详情</button>
+						<button class="button button-outline-custom" ng-click="commentOrder(order)">{{order.hasComment?"已评价":"去评价"}}</button>
+		        	</div>
+			  	</div>
+			  	
+			</div>
+  		</div>
+	</ion-content>
+</ion-view>

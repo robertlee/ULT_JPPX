@@ -1,0 +1,54 @@
+.orderComment-content{
+			background-color:#E9E9E9;
+}
+
+.orderComment-content .title{
+	background-color:#0998DC;
+	height:50px;
+	line-height:50px;
+	margin:0px;
+	font-size:20px;
+	color:white;
+	padding-left:20px;
+}
+
+.orderComment-content .list{
+	margin-bottom:0px;
+}
+
+.orderComment-content .list .item{
+	background-color:#E9E9E9;
+    border-color: #bababa;
+    
+}
+
+.orderComment-content .comment-box {
+	width:95%;
+	margin:0px auto;
+	margin-top:30px;
+	border:1px solid #bababa;
+	margin-bottom:30px;	
+}
+
+.orderComment-content .list .item div{
+	padding:0px;
+}
+
+.orderComment-content .star0{
+	background:url(/img/my/comment/star0.png);
+	background-repeat:no-repeat;
+	background-size:30px 30px;
+	font-size: 30px;	
+}
+
+.orderComment-content .star1{
+	background:url(/img/my/comment/star1.png);
+	background-repeat:no-repeat;
+	background-size:30px 30px;
+	font-size: 30px;		
+}
+
+.orderComment-content  .bottom{
+		
+		background-color:#E9E9E9;
+}

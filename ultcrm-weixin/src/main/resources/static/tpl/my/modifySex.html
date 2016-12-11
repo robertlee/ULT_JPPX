@@ -1,0 +1,26 @@
+
+<ion-view view-title="我的信息">
+	<ion-content class="modifysex-content">
+	
+		<!-- 选择性别 -->
+		<div class="list">
+		  	<label class="item custom-item-radio">
+		  		<input type="radio" name="sex" ng-model="customer.sex" value="男" data-toggle="radio" ng-change="changeSex()">
+		  		<div class="radio-text">
+	     		 	男
+	    		</div>
+	    		<i class="custom-radio-icon icon iconfont" ng-class="{'icon-radio-off':!isMale,'icon-radio-on':isMale,'blue':isMale}"></i>
+	    	</label>
+	    	
+	    	<label class="item custom-item-radio">
+				<input type="radio" name="sex" ng-model="customer.sex" value="女" data-toggle="radio" ng-change="changeSex()">
+			    <div class="radio-text">
+			          女
+			    </div>
+			    <i class="custom-radio-icon icon iconfont" ng-class="{'icon-radio-off':!isFemale,'icon-radio-on':isFemale,'blue':isFemale}"></i>
+			</label>
+		</div>
+	  	
+	</ion-content>
+</ion-view>
+

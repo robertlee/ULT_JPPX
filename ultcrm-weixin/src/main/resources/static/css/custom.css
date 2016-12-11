@@ -1,0 +1,122 @@
+
+.paddingTopList {
+	padding-top:44px;
+}
+
+.slidebox {
+	height:200px;
+}
+
+.tab-nav {
+	border-top:1px solid #b2b2b2 !important;
+}
+
+.tabs .tab-item .icon.tabhome {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url('../img/home/index/home-off.png');
+  background-size:contain;
+}
+
+.tabs .tab-item .icon.tabhomeon {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url('../img/home/index/home-on.png');
+  background-size:contain;
+}
+
+.tabs .tab-item .icon.tabmall {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url('../img/home/index/mall-off.png');
+  background-size:contain;
+}
+
+.tabs .tab-item .icon.tabmallon {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url('../img/home/index/mall_on.png');
+  background-size:contain;
+}
+
+.tabs .tab-item .icon.tabrescue {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url('../img/home/index/rescue-off.png');
+  background-size:contain;
+}
+
+.tabs .tab-item .icon.tabrescueon {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url('../img/home/index/rescue_on.png');
+  background-size:contain;
+}
+.tabs .tab-item .icon.tabme {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url('../img/home/index/me-off.png');
+  background-size:contain;
+}
+
+.tabs .tab-item .icon.tabmeon {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url('../img/home/index/me-on.png');
+  background-size:contain;
+}
+
+.courseSelect img{
+	max-width: 100%;
+	height:50px;
+	weight:50px;
+}
+
+/*********************************************************** 客户信息组件 *******************************************/
+.custom-info {
+  position: relative;
+  height: 99px;
+  padding: 0;
+  color: #666666;
+}
+.custom-info .avatar {
+  position: absolute;
+  top: 22px;
+  left: 16.5px;
+  margin: auto 0;
+}
+.custom-info .detail {
+  position: absolute;
+  top: 27.5px;
+  left: 82.5px;
+  height: 44px;
+}
+.custom-info .detail .name {
+  margin: 0;
+  /**color: #333333;**/
+  font-size: 22px;
+}
+.custom-info .detail .phone {
+  margin: 0;
+  /**color: #666666;**/
+  font-size: 18px;
+}
+.custom-info .detail .nickname {
+  height: 44px;
+  line-height: 44px;
+  margin: 0;
+  vertical-align: middle;
+  color: #333333;
+  font-size: 16.5px;
+}
+.custom-info .icon {
+  position: absolute;
+  top: 39px;
+  right: 13.2px;
+}
+.custom-info .icon-edit:before {
+  padding-left: 4px;
+}
+
+
+

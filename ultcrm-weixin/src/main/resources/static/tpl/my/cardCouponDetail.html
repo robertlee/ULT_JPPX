@@ -1,0 +1,126 @@
+<style>
+	.couponDetail-content .couponList{
+		position: relative;
+		margin: 10px;
+		margin-top: 48px;
+		padding-bottom: 8px;
+		border-radius: 5px;
+		background: #fff;
+	}
+	.couponDetail-content .couponList .item.item-single{
+		height: auto;
+		line-height: 24px;
+		padding-top:10px;
+		padding-bottom:10px;
+		margin-left: 10px;
+		margin-right: 10px;
+		border-left: none;
+		border-right: none;
+	}
+	.couponDetail-content .couponList .item-single:first-child{
+		padding-top: 38px;
+		height: 80px;
+	}
+	.couponDetail-content .couponList .item-single:last-child{
+		border-bottom: none;
+	}
+	.couponDetail-content .couponList .item-single .row{
+		margin: 0px;
+		padding: 0;
+		padding-left: 10px;
+		height: 100%;
+	}
+	.couponDetail-content .couponList .item-single .row p{
+		padding: 0;
+		margin: 0;
+	}
+	.couponDetail-content .couponList .coupon-desc p{
+		width: 100%;
+		text-align: center;
+		font-size: 22px;
+		color: #ff9d28;
+	}
+	/*金牌培训图标 */
+	.couponDetail-content .couponList .91jppx-icon{
+		position: absolute;
+		top: -35px;
+		left: calc(50% - 35px);
+		left: -webkit-calc(50% - 35px);
+		width: 70px;
+		height: 70px;
+		z-index: 10;
+		border-radius: 50%;
+		background: url(/img/91jppx_store.png);
+		background-size: contain;
+		background-position: center;
+	}
+	
+	.couponDetail-content .couponList .item-single .title{
+		min-width: 50px;
+		font-size: 16px;
+		color: #333;
+	}
+	.couponDetail-content .couponList .item-single p.content{
+		/**padding-left: 15px;*/
+		white-space: pre-line;
+	}
+	.couponDetail-content .couponList .item-single .used-desc{
+		padding-top: 5px;
+		height: 45px;
+		line-height: 45px;
+	}
+	.couponDetail-content .couponList .item-single .used-desc p{
+		width: 100%;
+		text-align: center;
+		font-size: 22px;
+		color: #35b2e3;
+	}
+</style>
+<ion-view view-title="优惠券详情" >
+	<ion-content class="couponDetail-content bg-blue">	
+		<div class="list couponList">
+			<div class="item item-single flexible">
+				<div class="row coupon-desc"><p>{{batch.name}}使用说明</p></div>
+			</div>
+			<!-- 放在第二个是为了适用:first-child -->
+			<div class="91jppx-icon"></div>
+			<div class="item item-single">
+				<div class="row">
+					<p class="col col-25 title">优惠说明:</p>
+					<p class="col col-75 content">{{batch.description}}</p>
+				</div>
+			</div>
+			<div class="item item-single">
+				<div class="row">
+					<p class="col col-25 title">备&nbsp&nbsp&nbsp注:</p>
+					<p class="col col-75 content">1.本券仅供预约培训本人使用<br>2.不与其他优惠券叠加使用<br>3.不可兑现<br>4.每次仅可使用一张<br></p>
+				</div>
+			</div>
+			<div class="item item-single" ng-click="toDirect()">
+				<div class="row" >
+					<p class="col col-25  title">适用门店:</p>
+					<p class="col col-50 content">海上田园深圳店</p>
+					<div class="col col-10">
+						<i class=" iconfont icon-locate orange" style="position:relative;top:-5px;font-size: 18px;"></i>
+					</div>
+				</div> 
+			</div>
+			<div ng-if="consumeList.length>0" class="item item-single" style="border-top:2px dashed #999;padding:5px;">
+				<div class="row used-desc" ><p>{{batch.name}}使用情况</p></div>
+			</div>
+			<div ng-if="consumeList.length>0" ng-repeat="item in consumeList" class="item item-single row">
+				<div class="col">
+					<p class="title">使用时间:&nbsp;{{item.time | date:'yyyy/MM/dd'}}</p>
+				</div>
+				<div class="col">
+					<p class="title">使用订单:&nbsp;{{item.orderNo}}</p>
+				</div>
+			</div>
+		</div>
+		
+		<div style="padding:0 15px">
+			<button class="button button-submit" ng-if="orderId" style="margin-top: 30px;" ng-click="receive()">立即领取</button>
+		</div>
+	</ion-content>
+</ion-view>
+
