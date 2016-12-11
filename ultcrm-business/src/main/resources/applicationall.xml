@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   					   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <!-- 定义主题 -->  
+    <bean id="myTopic"  class="org.apache.activemq.command.ActiveMQTopic">  
+      <constructor-arg value="ULTCRMORDER"/>  
+    </bean>
+    
+    <bean id="customerTopic"  class="org.apache.activemq.command.ActiveMQTopic">  
+      <constructor-arg value="ULTCRMCUSTOMER"/>  
+    </bean>
+    
+    <bean id="cardTopic"  class="org.apache.activemq.command.ActiveMQTopic">  
+      <constructor-arg value="CARD"/>  
+    </bean>
+    
+    <bean id="couponTopic"  class="org.apache.activemq.command.ActiveMQTopic">  
+      <constructor-arg value="COUPON"/>  
+    </bean>
+    
+    <bean id="scoreTopic"  class="org.apache.activemq.command.ActiveMQTopic">  
+      <constructor-arg value="SCORE"/>  
+    </bean>
+
+ 
+   <!-- Spring JMS Template -->
+   <bean id="topicJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+      <property name="connectionFactory">
+        <ref bean="jmsFactory"/>
+      </property>
+      <property name="pubSubDomain" value="true" />
+      <property name="receiveTimeout" value="30000" /> 
+   </bean>
+   
+    
+	<bean id="orderStatustopicMsgReceiver" class="com.uletian.ultcrm.business.service.OrderStatusMessageListener">  
+    </bean> 
+           
+	<bean id="scoreMsgService" class="com.uletian.ultcrm.business.msg.ScoreMsgService">  
+    </bean>
+    
+    <bean id="couponMsgService" class="com.uletian.ultcrm.business.msg.CouponMsgService">  
+    </bean>
+    
+    <bean id="cardMsgService" class="com.uletian.ultcrm.business.msg.CardMsgService">  
+    </bean>
+    
+    <!-- 客户数据同步 -->
+	<bean id="customerInfoService" class="com.uletian.ultcrm.business.service.CustomerInfoMessageService">  
+    </bean>
+   
+    <bean id="orderStatuslistenerContainer"    
+        class="org.springframework.jms.listener.DefaultMessageListenerContainer">    
+        <property name="connectionFactory" ref="jmsFactory" />    
+        <property name="pubSubDomain" value="true"/>
+        <property name="destination" ref="myTopic" />
+        <property name="subscriptionDurable" value="true"/>  
+        <property name="clientId" value="clientId_007"/>
+        <property name="messageSelector" value="SENDER = 'CRM'"/> 
+        <property name="messageListener" ref="orderStatustopicMsgReceiver" />
+    </bean>
+       
+    <bean id="customerInfolistenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">    
+
+        <property name="connectionFactory" ref="jmsFactory" />
+        <property name="pubSubDomain" value="true"/>
+        <property name="destination" ref="customerTopic" />
+        <property name="subscriptionDurable" value="true"/>
+        <property name="clientId" value="clientId_007"/>
+        <property name="messageSelector" value="SENDER = 'CRM'"/>
+        <property name="messageListener" ref="customerInfoService" />
+    </bean>
+    
+    <bean id="scoreMsgServiceContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">    
+        <property name="connectionFactory" ref="jmsFactory" />    
+        <property name="pubSubDomain" value="true"/>
+        <property name="destination" ref="scoreTopic" />
+        <property name="subscriptionDurable" value="true"/>
+        <property name="clientId" value="clientId_007"/>
+        <property name="messageSelector" value="SENDER = 'CRM'"/>
+        <property name="messageListener" ref="scoreMsgService" />
+    </bean> 
+    
+    <bean id="couponMsgServiceContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">    
+        <property name="connectionFactory" ref="jmsFactory" />    
+        <property name="pubSubDomain" value="true"/>
+        <property name="destination" ref="couponTopic" />
+        <property name="subscriptionDurable" value="true"/>
+        <property name="clientId" value="clientId_007"/>
+         <property name="messageSelector" value="SENDER = 'CRM'"/> 
+        <property name="messageListener" ref="couponMsgService" />
+    </bean>
+    
+    <bean id="cardMsgServiceContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">    
+        <property name="connectionFactory" ref="jmsFactory" />    
+        <property name="pubSubDomain" value="true"/>
+        <property name="destination" ref="cardTopic" />
+        <property name="subscriptionDurable" value="true"/>
+        <property name="clientId" value="clientId_007"/>
+         <property name="messageSelector" value="SENDER = 'CRM'"/>
+        <property name="messageListener" ref="cardMsgService" />
+    </bean>
+     
+	<bean id="smsQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg>
+			<value>smsQueue</value>
+		</constructor-arg>
+	</bean>
+	
+ 	<!-- 短信发送队列  -->
+	<bean id="smsQueueListener" class="com.uletian.ultcrm.business.service.SmsQueueService" />
+	<bean id="responseQueueMessageListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="jmsFactory" />
+		<property name="destination" ref="smsQueue" />
+		<property name="messageListener" ref="smsQueueListener" />
+	</bean>
+	<bean id="templateMessageQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg>
+			<value>templateMessageQueue</value>
+		</constructor-arg>
+	</bean>
+	<bean id="templateMessageQueueListener" class="com.uletian.ultcrm.weixin.service.TemplateMessageQueueListener" />
+	<bean id="templateQueueMessageListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="jmsFactory" />
+		<property name="destination" ref="templateMessageQueue" />
+		<property name="messageListener" ref="templateMessageQueueListener" />
+	</bean>
+	 
+	 <bean id="eventMessageQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg>
+			<value>eventMessageQueue</value>
+		</constructor-arg>
+	</bean>
+	<bean id="eventMessageQueueListener" class="com.uletian.ultcrm.business.service.EventMessageService" />
+	<bean id="eventQueueMessageListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="jmsFactory" />
+		<property name="destination" ref="eventMessageQueue" />
+		<property name="messageListener" ref="eventMessageQueueListener" />
+	</bean>
+</beans>
