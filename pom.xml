@@ -7,6 +7,7 @@
 	    <repository>
 		    <snapshots>
 			
+		        <enabled>true</enabled>
 		    </snapshots>
 		    <id>central</id>
 		    <name>bintray</name>
